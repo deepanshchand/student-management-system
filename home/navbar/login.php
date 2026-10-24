@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login | StudentHub</title>
+    <title>Login | Student Management System</title>
     <link rel="stylesheet" href="navbar.css">
     <link rel="stylesheet" href="login.css">
 </head>
@@ -16,7 +16,7 @@
     <main class="auth-container">
         <section class="auth-card">
             <h1>Welcome <span>Back</span></h1>
-            <p>Login to your StudentHub account.</p>
+            <p>Login to your Student Management System account.</p>
 
             <form class="auth-form" method="post">
                 <label for="email">Email Address</label>

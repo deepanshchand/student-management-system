@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up | StudentHub</title>
+    <title>Sign Up | Student Management System</title>
     <link rel="stylesheet" href="navbar.css">
     <link rel="stylesheet" href="signup.css">
 </head>
@@ -16,7 +16,7 @@
     <main class="auth-container">
         <section class="auth-card">
             <h1>Create <span>Account</span></h1>
-            <p>Register for StudentHub.</p>
+            <p>Register for Student Management System.</p>
 
             <form class="auth-form" method="post">
                 <label for="name">Full Name</label>

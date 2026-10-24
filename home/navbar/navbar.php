@@ -2,7 +2,7 @@
 
     <a href="/student-management-system/home/home.php" class="home-brand">
         <span class="brand-icon">S</span>
-        <span>Student<span class="brand-red">Hub</span></span>
+        <span>Record<span class="brand-red"></span></span>
     </a>
 
     <div class="home-nav-links">

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#fffafa">
 
-    <title>StudentHub | Student Management System</title>
+    <title>Student Management System</title>
 
     <link rel="stylesheet" href="home.css">
     <link rel="stylesheet" href="navbar/navbar.css">
@@ -79,7 +79,7 @@
             <span>Student<span class="brand-red">Hub</span></span>
         </a>
 
-        <span>© <?php echo date('Y'); ?> StudentHub</span>
+        <span>© <?php echo date('Y'); ?> Student Management System</span>
     </footer>
 
 </body>
