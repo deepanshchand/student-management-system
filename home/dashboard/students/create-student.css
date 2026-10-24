@@ -1,0 +1,287 @@
+/* ========================================
+   StudentHub — Add Student Form
+   Modern Red / Black / White Theme
+======================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --primary: #e11d48;
+    --primary-dark: #be123c;
+    --text: #171717;
+    --muted: #737373;
+    --border: #e5e7eb;
+    --surface: #ffffff;
+    --background: #f7f7fa;
+    --shadow: 0 20px 60px rgba(15, 23, 42, 0.08);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    padding: 55px 24px 70px;
+    font-family: 'Inter', sans-serif;
+    color: var(--text);
+    background:
+        radial-gradient(ellipse at 0% 0%, rgba(225, 29, 72, 0.09), transparent 35%),
+        radial-gradient(ellipse at 100% 100%, rgba(225, 29, 72, 0.06), transparent 30%),
+        var(--background);
+}
+
+/* Page heading */
+
+h1 {
+    max-width: 850px;
+    margin: 0 auto 30px;
+    font-size: clamp(28px, 4vw, 38px);
+    font-weight: 800;
+    letter-spacing: -1.5px;
+    line-height: 1.2;
+}
+
+h1::before {
+    content: '';
+    display: inline-block;
+    width: 5px;
+    height: 34px;
+    margin-right: 13px;
+    vertical-align: -5px;
+    border-radius: 8px;
+    background: var(--primary);
+}
+
+/* Form container */
+
+form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 9px 22px;
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 38px;
+    background: var(--surface);
+    border: 1px solid rgba(229, 231, 235, 0.9);
+    border-radius: 22px;
+    box-shadow: var(--shadow);
+}
+
+/* Labels */
+
+form label {
+    display: block;
+    align-self: end;
+    margin-top: 13px;
+    margin-bottom: 2px;
+    color: #292929;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+/* Inputs, dropdown and textarea */
+
+form input,
+form select,
+form textarea {
+    width: 100%;
+    min-width: 0;
+    min-height: 49px;
+    padding: 13px 14px;
+    color: #171717;
+    font: inherit;
+    font-size: 14px;
+    background: #fafafa;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    outline: none;
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+form input:hover,
+form select:hover,
+form textarea:hover {
+    border-color: #d4d4d8;
+    background: #ffffff;
+}
+
+form input:focus,
+form select:focus,
+form textarea:focus {
+    border-color: var(--primary);
+    background: #ffffff;
+    box-shadow: 0 0 0 4px rgba(225, 29, 72, 0.10);
+}
+
+form input::placeholder,
+form textarea::placeholder {
+    color: #a3a3a3;
+}
+
+form select {
+    cursor: pointer;
+}
+
+form textarea {
+    min-height: 105px;
+    resize: vertical;
+    line-height: 1.6;
+}
+
+/* Date fields */
+
+form input[type="date"] {
+    cursor: pointer;
+    color-scheme: light;
+}
+
+/* Keyboard accessibility */
+
+form input:focus-visible,
+form select:focus-visible,
+form textarea:focus-visible,
+form button:focus-visible,
+form a:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 3px;
+}
+
+/* Error message */
+
+body > p {
+    max-width: 850px;
+    margin: 0 auto 16px !important;
+    padding: 13px 16px;
+    color: #be123c !important;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.6;
+    background: #fff1f2;
+    border: 1px solid #fecdd3;
+    border-radius: 10px;
+}
+
+/* Save button */
+
+form button {
+    grid-column: 1 / -1;
+    justify-self: start;
+    min-height: 49px;
+    margin-top: 18px !important;
+    padding: 0 27px;
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    background: linear-gradient(135deg, #f43f5e, #be123c);
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 7px 18px rgba(225, 29, 72, 0.22);
+    cursor: pointer;
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        filter 0.2s ease;
+}
+
+form button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 11px 25px rgba(225, 29, 72, 0.30);
+    filter: brightness(1.04);
+}
+
+form button:active {
+    transform: translateY(0);
+}
+
+/* Cancel link */
+
+form a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    justify-self: start;
+    min-height: 45px;
+    margin-top: 18px;
+    padding: 0 20px;
+    color: #404040;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    background: #f5f5f5;
+    border: 1px solid #e5e5e5;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+}
+
+form a:hover {
+    color: var(--primary-dark);
+    background: #fff1f2;
+    border-color: #fecdd3;
+}
+
+/* Responsive tablet and mobile */
+
+@media (max-width: 640px) {
+    body {
+        padding: 30px 15px 45px;
+    }
+
+    h1 {
+        margin-bottom: 22px;
+        font-size: 29px;
+        letter-spacing: -1px;
+    }
+
+    h1::before {
+        height: 27px;
+        margin-right: 9px;
+    }
+
+    form {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 7px;
+        padding: 23px 19px;
+        border-radius: 17px;
+    }
+
+    form label {
+        margin-top: 12px;
+    }
+
+    form input,
+    form select,
+    form textarea {
+        min-height: 47px;
+        font-size: 14px;
+    }
+
+    form button {
+        width: 100%;
+        margin-top: 20px !important;
+    }
+
+    form a {
+        justify-self: stretch;
+        margin-top: 5px;
+        margin-left: 0 !important;
+    }
+}
+
+/* Respect reduced-motion preference */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+}

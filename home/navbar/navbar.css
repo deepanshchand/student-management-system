@@ -1,0 +1,228 @@
+
+/* ==============================
+   StudentHub - Premium Navbar
+   Colors: Blue, Gray & White
+================================ */
+
+.home-navbar {
+    min-height: 78px;
+    padding: 14px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    background: #FFFFFF;
+    border-bottom: 1px solid #E7EDF5;
+    box-shadow: 0 4px 20px rgba(45, 75, 115, 0.05);
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 100;
+}
+
+.home-navbar a {
+    text-decoration: none;
+}
+
+/* Brand */
+.home-brand {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    color: #253247;
+    font-size: 25px;
+    font-weight: 800;
+    letter-spacing: -0.8px;
+    white-space: nowrap;
+}
+
+.brand-icon {
+    width: 44px;
+    height: 44px;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(135deg, #3978C5, #285DA5);
+    color: #FFFFFF;
+    border-radius: 13px;
+    font-size: 24px;
+    font-weight: 800;
+    box-shadow: 0 5px 13px rgba(57, 120, 197, 0.22);
+    transition: transform 0.25s ease;
+}
+
+.home-brand:hover .brand-icon {
+    transform: translateY(-2px);
+}
+
+.brand-red {
+    color: #3978C5;
+}
+
+/* Navigation Links */
+.home-nav-links {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.home-nav-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 11px 14px;
+    color: #758196;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 9px;
+    white-space: nowrap;
+    transition:
+        color 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.25s ease;
+}
+
+/* Normal Links Hover */
+.home-nav-links a:not(.nav-signup):not(.nav-dashboard):hover {
+    color: #3978C5;
+    background: #F0F6FF;
+}
+
+/* Active Home Link */
+.home-nav-links .nav-home,
+.home-nav-links .nav-home.active {
+    color: #3978C5;
+    background: #EDF4FF;
+    font-weight: 700;
+}
+
+/* Sign Up Button */
+.home-nav-links .nav-signup {
+    color: #3978C5;
+    border: 1px solid #C9DAF1;
+    background: #FFFFFF;
+    padding: 10px 17px;
+}
+
+.home-nav-links .nav-signup:hover {
+    background: #F0F6FF;
+    border-color: #3978C5;
+    transform: translateY(-1px);
+}
+
+/* Dashboard Button */
+.home-nav-links .nav-dashboard {
+    padding: 12px 19px;
+    color: #FFFFFF;
+    background: linear-gradient(135deg, #3978C5, #285DA5);
+    border: 1px solid transparent;
+    border-radius: 10px;
+    font-weight: 700;
+    box-shadow: 0 4px 12px rgba(57, 120, 197, 0.18);
+}
+
+.home-nav-links .nav-dashboard:hover {
+    background: linear-gradient(135deg, #306CB5, #204F91);
+    box-shadow: 0 7px 17px rgba(57, 120, 197, 0.25);
+    transform: translateY(-2px);
+}
+
+/* Tablet */
+@media (max-width: 1000px) {
+    .home-navbar {
+        padding: 14px 4%;
+        gap: 14px;
+    }
+
+    .home-brand {
+        font-size: 22px;
+        gap: 8px;
+    }
+
+    .brand-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 22px;
+    }
+
+    .home-nav-links {
+        gap: 4px;
+    }
+
+    .home-nav-links a {
+        padding: 10px 9px;
+        font-size: 13px;
+    }
+
+    .home-nav-links .nav-signup {
+        padding: 9px 12px;
+    }
+
+    .home-nav-links .nav-dashboard {
+        padding: 11px 12px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 650px) {
+    .home-navbar {
+        padding: 13px 5%;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 13px;
+    }
+
+    .home-brand {
+        font-size: 23px;
+    }
+
+    .brand-icon {
+        width: 39px;
+        height: 39px;
+        font-size: 22px;
+    }
+
+    .home-nav-links {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+
+    .home-nav-links a {
+        padding: 9px 11px;
+        font-size: 13px;
+    }
+
+    .home-nav-links .nav-signup {
+        padding: 8px 12px;
+    }
+
+    .home-nav-links .nav-dashboard {
+        padding: 10px 13px;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 380px) {
+    .home-navbar {
+        padding: 12px 4%;
+    }
+
+    .home-brand {
+        font-size: 21px;
+    }
+
+    .home-nav-links {
+        gap: 4px;
+    }
+
+    .home-nav-links a {
+        padding: 8px 9px;
+        font-size: 12px;
+    }
+
+    .home-nav-links .nav-dashboard {
+        padding: 9px 10px;
+    }
+}
