@@ -1,35 +1,27 @@
-<nav class="home-navbar">
+<?php require_once __DIR__ . '/../../config/app.php'; ?>
+<nav class="home-navbar" aria-label="Primary navigation">
 
-    <a href="/student-management-system/home/home.php" class="home-brand">
+    <a href="<?= e(app_url('home/home.php')) ?>" class="home-brand">
         <span class="brand-icon">S</span>
-        <span>Record<span class="brand-red"></span></span>
+        <span>Student<span class="brand-red">Hub</span></span>
     </a>
 
     <div class="home-nav-links">
-        <a href="/student-management-system/home/home.php" class="nav-home">
-            Home
-        </a>
+        <a href="<?= e(app_url('home/home.php')) ?>" class="nav-home">Home</a>
+        <a href="<?= e(app_url('home/navbar/about.php')) ?>">About</a>
+        <a href="<?= e(app_url('home/navbar/contact.php')) ?>">Contact Us</a>
 
-        <a href="/student-management-system/home/navbar/about.php">
-            About
-        </a>
-
-        <a href="/student-management-system/home/navbar/contact.php">
-            Contact Us
-        </a>
-
-        <a href="/student-management-system/home/navbar/login.php">
-            Login
-        </a>
-
-        <a href="/student-management-system/home/navbar/signup.php" class="nav-signup">
-            Sign Up
-        </a>
-
-        <a href="/student-management-system/home/dashboard/dashboard.php" class="nav-dashboard">
-            Dashboard ↗
-        </a>
-
+        <?php if (is_logged_in()): ?>
+        <span class="nav-user" title="Signed in account">Hi, <?= e(current_user_name()) ?></span>
+        <a href="<?= e(app_url('home/dashboard/dashboard.php')) ?>" class="nav-dashboard">Dashboard ↗</a>
+        <form class="logout-form" method="post" action="<?= e(app_url('home/navbar/logout.php')) ?>">
+            <?= csrf_field() ?>
+            <button type="submit" class="nav-logout">Log out</button>
+        </form>
+        <?php else: ?>
+        <a href="<?= e(app_url('home/navbar/login.php')) ?>">Login</a>
+        <a href="<?= e(app_url('home/navbar/signup.php')) ?>" class="nav-signup">Sign Up</a>
+        <?php endif; ?>
     </div>
 
 </nav>

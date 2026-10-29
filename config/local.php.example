@@ -1,0 +1,9 @@
+<?php
+
+// Copy this file to config/local.php and enter your local values. Do not commit it.
+return [
+    'host' => 'localhost',
+    'username' => 'root',
+    'password' => '',
+    'database' => 'student_management_system',
+];

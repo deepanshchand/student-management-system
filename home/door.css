@@ -1,0 +1,1346 @@
+/* =========================================================
+   STUDENT MANAGEMENT SYSTEM
+   Cinematic Anime College Entrance
+   FINAL — Smooth Gate Swing + Performance-Friendly Zoom
+========================================================= */
+
+:root {
+  --gate-black: #080808;
+  --gate-dark: #111114;
+  --gate-red: #d71932;
+  --gate-red-bright: #ff2948;
+  --gate-white: #ffffff;
+  --gate-muted: #c7c7ce;
+  --gate-brown: #38251f;
+  --gate-brown-light: #775044;
+}
+
+/* Entrance controller */
+#gate-toggle {
+  position: fixed;
+  width: 1px;
+  height: 1px;
+  left: -10px;
+  top: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* =========================================================
+   INTRO SCREEN
+========================================================= */
+
+.cinematic-intro {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  overflow: hidden;
+  isolation: isolate;
+  perspective: 1100px;
+  color: var(--gate-white);
+  background: #303750;
+  opacity: 1;
+  visibility: visible;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.academy-sky {
+  position: absolute;
+  inset: 0;
+  z-index: -5;
+  background:
+    radial-gradient(
+      ellipse at 50% 58%,
+      rgba(255, 197, 154, 0.8) 0%,
+      rgba(221, 145, 151, 0.48) 24%,
+      transparent 63%
+    ),
+    linear-gradient(
+      180deg,
+      #202a42 0%,
+      #424b69 24%,
+      #80617e 43%,
+      #c4828d 59%,
+      #dfa08f 70%,
+      #76536e 86%,
+      #252c42 100%
+    );
+}
+
+.academy-stars,
+.academy-stars::before,
+.academy-stars::after {
+  display: none !important;
+}
+
+/* =========================================================
+   MOON
+========================================================= */
+
+.academy-moon {
+  position: absolute;
+  z-index: -3;
+  top: 7%;
+  right: 13%;
+  width: clamp(100px, 14vw, 185px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 29% 25%, #fff 0%, #e8e3df 27%, transparent 48%),
+    radial-gradient(
+      circle at 66% 38%,
+      rgba(108, 105, 109, 0.44) 0 5%,
+      transparent 6.5%
+    ),
+    radial-gradient(
+      circle at 37% 59%,
+      rgba(110, 107, 111, 0.38) 0 9%,
+      transparent 10.5%
+    ),
+    radial-gradient(
+      circle at 72% 69%,
+      rgba(120, 117, 120, 0.36) 0 7%,
+      transparent 8.5%
+    ),
+    radial-gradient(circle at 45% 44%, #e4e0dd 0%, #c9c5c2 58%, #8e898e 100%);
+  box-shadow:
+    inset -12px -7px 22px rgba(53, 43, 65, 0.38),
+    inset 5px 4px 13px rgba(255, 255, 255, 0.55),
+    0 0 25px rgba(255, 235, 215, 0.2),
+    0 0 65px rgba(255, 199, 184, 0.12);
+  animation: moon-float 8s ease-in-out infinite;
+}
+
+.academy-moon::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background:
+    radial-gradient(
+      ellipse at 36% 31%,
+      transparent 0 5%,
+      rgba(90, 85, 89, 0.22) 6%,
+      transparent 9%
+    ),
+    radial-gradient(
+      ellipse at 67% 53%,
+      transparent 0 7%,
+      rgba(82, 78, 83, 0.3) 8%,
+      transparent 11%
+    ),
+    radial-gradient(
+      ellipse at 27% 63%,
+      transparent 0 3%,
+      rgba(92, 88, 92, 0.3) 4%,
+      transparent 7%
+    );
+}
+
+.academy-moon::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    115deg,
+    transparent 28%,
+    rgba(255, 255, 255, 0.08) 48%,
+    rgba(30, 22, 29, 0.18) 72%,
+    rgba(8, 8, 8, 0.5) 100%
+  );
+  pointer-events: none;
+}
+
+.academy-moon-halo {
+  position: absolute;
+  z-index: -4;
+  top: 3%;
+  right: 8%;
+  width: clamp(145px, 21vw, 270px);
+  aspect-ratio: 1;
+  border: 1px solid rgba(255, 232, 220, 0.18);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 12px rgba(255, 230, 215, 0.02),
+    0 0 0 28px rgba(255, 205, 205, 0.025),
+    0 0 45px 8px rgba(255, 220, 205, 0.06);
+  animation: halo-breathe 7s ease-in-out infinite;
+}
+
+/* =========================================================
+   CLOUDS AND FLOATING ISLANDS
+========================================================= */
+
+.academy-clouds {
+  position: absolute;
+  left: -15%;
+  width: 130%;
+  height: 25%;
+  pointer-events: none;
+  border-radius: 50%;
+  filter: blur(24px);
+}
+
+.cloud-back {
+  z-index: 1;
+  top: 49%;
+  opacity: 0.45;
+  background:
+    radial-gradient(
+      ellipse at 22% 55%,
+      rgba(255, 220, 190, 0.55),
+      transparent 39%
+    ),
+    radial-gradient(
+      ellipse at 48% 45%,
+      rgba(238, 174, 181, 0.55),
+      transparent 42%
+    ),
+    radial-gradient(
+      ellipse at 77% 60%,
+      rgba(130, 105, 147, 0.6),
+      transparent 43%
+    );
+  animation: clouds-move 38s linear infinite;
+}
+
+.cloud-front {
+  z-index: 8;
+  bottom: -18%;
+  height: 32%;
+  opacity: 0.38;
+  background:
+    radial-gradient(ellipse at 20% 65%, #50475f, transparent 40%),
+    radial-gradient(ellipse at 48% 70%, #39364f, transparent 44%),
+    radial-gradient(ellipse at 78% 65%, #79566d, transparent 42%);
+  animation: clouds-move 32s linear infinite reverse;
+}
+
+.floating-island {
+  position: absolute;
+  z-index: 2;
+  width: clamp(90px, 13vw, 170px);
+  height: 105px;
+  opacity: 0.5;
+  animation: island-drift 8s ease-in-out infinite;
+}
+
+.island-left {
+  top: 44%;
+  left: 3%;
+  transform: scale(0.85);
+}
+
+.island-right {
+  top: 41%;
+  right: 3%;
+  animation-delay: -3s;
+  transform: scale(0.9);
+}
+
+.island-rock {
+  position: absolute;
+  bottom: 0;
+  left: 5%;
+  width: 90%;
+  height: 42%;
+  background: linear-gradient(135deg, #343238, #0c0c0e);
+  clip-path: polygon(0 0, 100% 0, 77% 45%, 61% 100%, 35% 68%, 15% 50%);
+  filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.7));
+}
+
+.island-building {
+  position: absolute;
+  z-index: 2;
+  top: 15%;
+  left: 33%;
+  width: 34%;
+  height: 40%;
+  background: #29282d;
+  border-top: 2px solid var(--gate-red);
+}
+
+.mini-pagoda {
+  position: absolute;
+  z-index: 2;
+  top: 12%;
+  left: 25%;
+  width: 50%;
+  height: 50%;
+  background: linear-gradient(90deg, #171719, #68656b, #171719);
+  clip-path: polygon(
+    50% 0,
+    100% 25%,
+    78% 29%,
+    90% 42%,
+    70% 46%,
+    80% 60%,
+    20% 60%,
+    30% 46%,
+    10% 42%,
+    22% 29%,
+    0 25%
+  );
+}
+
+/* =========================================================
+   COLLEGE WORLD
+========================================================= */
+
+.academy-world {
+  position: absolute;
+  z-index: 5;
+  left: 50%;
+  bottom: 8%;
+  width: min(96vw, 1220px);
+  height: min(67vh, 620px);
+  min-height: 340px;
+  transform: translateX(-50%) translateZ(0);
+  transform-origin: center 63%;
+  animation: world-hover 7s ease-in-out infinite;
+  backface-visibility: hidden;
+}
+
+.world-aura {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse at 50% 60%,
+    rgba(255, 183, 163, 0.2),
+    rgba(193, 119, 157, 0.08) 38%,
+    transparent 67%
+  );
+  filter: blur(25px);
+  animation: aura-pulse 5s ease-in-out infinite;
+}
+
+.academy-main-building {
+  position: absolute;
+  z-index: 5;
+  left: 50%;
+  bottom: 29%;
+  width: 51%;
+  height: 73%;
+  transform: translateX(-50%);
+  filter: drop-shadow(0 12px 22px rgba(0, 0, 0, 0.8))
+    drop-shadow(0 0 14px rgba(215, 25, 50, 0.1));
+}
+
+.academy-building-body {
+  position: absolute;
+  bottom: 0;
+  left: 7%;
+  width: 86%;
+  height: 68%;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  background: linear-gradient(
+    90deg,
+    #151518 0%,
+    #333137 24%,
+    #242328 50%,
+    #343137 76%,
+    #111113 100%
+  );
+  box-shadow:
+    inset 0 0 35px rgba(0, 0, 0, 0.65),
+    inset 0 0 12px rgba(255, 255, 255, 0.04);
+}
+
+.academy-building-body::before {
+  content: "";
+  position: absolute;
+  z-index: 3;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      180deg,
+      transparent 0 32%,
+      rgba(0, 0, 0, 0.6) 32.5% 34%,
+      transparent 34.5% 64%,
+      rgba(0, 0, 0, 0.6) 64.5% 66%,
+      transparent 66.5%
+    ),
+    linear-gradient(
+      90deg,
+      transparent 0 7%,
+      rgba(255, 255, 255, 0.06) 7.5% 8%,
+      transparent 8.5% 92%,
+      rgba(255, 255, 255, 0.06) 92.5% 93%,
+      transparent 93.5%
+    );
+}
+
+/* Roof */
+.academy-roof {
+  position: absolute;
+  z-index: 3;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(180deg, #3b373d 0%, #1b1a1e 42%, #080809 100%);
+  border-top: 3px solid #d8d5d8;
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.12))
+    drop-shadow(0 4px 7px rgba(0, 0, 0, 0.7));
+}
+
+.roof-top {
+  top: 0;
+  height: 21%;
+  clip-path: polygon(50% 0, 100% 72%, 92% 78%, 82% 72%, 18% 72%, 8% 78%, 0 72%);
+}
+
+.roof-middle {
+  top: 19%;
+  height: 23%;
+  clip-path: polygon(50% 0, 100% 72%, 94% 79%, 85% 74%, 15% 74%, 6% 79%, 0 72%);
+}
+
+.academy-roof::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 18%;
+  width: 64%;
+  height: 3px;
+  background: var(--gate-red-bright);
+  box-shadow: 0 0 7px rgba(255, 41, 72, 0.6);
+}
+
+.academy-sign {
+  position: absolute;
+  z-index: 4;
+  top: 12%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  font-family: Georgia, serif;
+  font-size: clamp(17px, 2.7vw, 33px);
+  font-weight: 700;
+  white-space: nowrap;
+  text-shadow: 0 0 7px rgba(255, 255, 255, 0.35);
+}
+
+.academy-windows {
+  position: absolute;
+  top: 38%;
+  left: 10%;
+  right: 10%;
+  display: flex;
+  justify-content: space-between;
+  gap: 5%;
+}
+
+.academy-windows span {
+  position: relative;
+  width: 22%;
+  height: clamp(25px, 5.5vh, 55px);
+  max-height: 8vh;
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  background: linear-gradient(
+    180deg,
+    #fff 0%,
+    #ffb7c1 14%,
+    #b84b60 58%,
+    #470712 100%
+  );
+  box-shadow:
+    0 0 10px rgba(255, 35, 65, 0.3),
+    inset 0 0 10px rgba(255, 255, 255, 0.2);
+  animation: windows-glow 3s ease-in-out infinite alternate;
+}
+
+.academy-windows span:nth-child(2) {
+  animation-delay: 0.8s;
+}
+
+.academy-windows span:nth-child(3) {
+  animation-delay: 1.4s;
+}
+
+/* =========================================================
+   DOUBLE GATE
+========================================================= */
+
+.academy-building-body .academy-entrance-light {
+  position: absolute;
+  z-index: 5;
+  left: 35%;
+  bottom: 0;
+  width: 30%;
+  height: 37%;
+  display: block;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid #a78a79;
+  border-bottom: 0;
+  background:
+    linear-gradient(90deg, transparent 49%, #a78a79 49% 51%, transparent 51%),
+    linear-gradient(180deg, #161011, #39251f);
+  box-shadow:
+    0 0 0 2px rgba(0, 0, 0, 0.7),
+    0 0 14px rgba(255, 255, 255, 0.12);
+  perspective: 700px;
+  isolation: isolate;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+.academy-building-body .academy-entrance-light::before,
+.academy-building-body .academy-entrance-light::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  z-index: 2;
+  border: 1px solid #8c6653;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      transparent 0 10px,
+      rgba(0, 0, 0, 0.3) 11px 13px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent 0 17px,
+      rgba(0, 0, 0, 0.45) 18px 21px
+    ),
+    linear-gradient(90deg, #281a16, #694638 48%, #38231d);
+  box-shadow:
+    inset 0 0 10px rgba(0, 0, 0, 0.7),
+    inset 0 0 5px rgba(255, 202, 168, 0.1);
+  transition:
+    transform 1.1s cubic-bezier(0.22, 0.61, 0.36, 1),
+    filter 0.5s ease,
+    box-shadow 0.5s ease;
+  backface-visibility: hidden;
+}
+
+.academy-building-body .academy-entrance-light::before {
+  left: 0;
+  transform-origin: left center;
+  border-right: 2px solid #b59a83;
+}
+
+.academy-building-body .academy-entrance-light::after {
+  right: 0;
+  transform-origin: right center;
+  border-left: 2px solid #b59a83;
+}
+
+.academy-building-body .academy-entrance-light {
+  isolation: isolate;
+}
+
+.academy-building-body .academy-entrance-light > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Gate swing */
+#gate-toggle:checked
+  ~ .cinematic-intro
+  .academy-building-body
+  .academy-entrance-light::before {
+  transform: perspective(700px) rotateY(-112deg);
+  filter: brightness(1.15);
+  box-shadow: inset 0 0 16px rgba(0, 0, 0, 0.9);
+}
+
+#gate-toggle:checked
+  ~ .cinematic-intro
+  .academy-building-body
+  .academy-entrance-light::after {
+  transform: perspective(700px) rotateY(112deg);
+  filter: brightness(1.15);
+  box-shadow: inset 0 0 16px rgba(0, 0, 0, 0.9);
+}
+
+#gate-toggle:checked
+  ~ .cinematic-intro
+  .academy-building-body
+  .academy-entrance-light {
+  box-shadow:
+    0 0 0 2px rgba(0, 0, 0, 0.7),
+    0 0 18px rgba(215, 25, 50, 0.3);
+}
+
+.academy-stairs {
+  position: absolute;
+  z-index: -1;
+  left: -11%;
+  bottom: -13%;
+  width: 122%;
+  height: 17%;
+  background: repeating-linear-gradient(
+    180deg,
+    #d7d1d2 0 2px,
+    #5a555b 3px 7px,
+    #171619 8px 10px
+  );
+  border-top: 1px solid #fff;
+  clip-path: polygon(15% 0, 85% 0, 100% 100%, 0 100%);
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.1));
+}
+
+/* =========================================================
+   SIDE TOWERS
+========================================================= */
+
+.academy-tower {
+  position: absolute;
+  z-index: 4;
+  bottom: 30%;
+  width: 19%;
+  height: 56%;
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.8));
+}
+
+.tower-left {
+  left: 7%;
+}
+
+.tower-right {
+  right: 7%;
+}
+
+.tower-body {
+  position: absolute;
+  bottom: 0;
+  left: 17%;
+  width: 66%;
+  height: 72%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: linear-gradient(
+    90deg,
+    #111114,
+    #3a363d 40%,
+    #242227 65%,
+    #0a0a0b
+  );
+  box-shadow: inset 0 0 22px rgba(0, 0, 0, 0.6);
+}
+
+.tower-body span {
+  width: 13%;
+  height: 58%;
+  background: linear-gradient(180deg, #fff, #c95b70 30%, #702235 100%);
+  box-shadow: 0 0 8px rgba(255, 41, 72, 0.3);
+}
+
+.tower-roof {
+  position: absolute;
+  z-index: 2;
+  top: 5%;
+  left: 0;
+  width: 100%;
+  height: 31%;
+  background: linear-gradient(180deg, #49444b, #151417 60%, #080808);
+  border-top: 3px solid #dedade;
+  clip-path: polygon(50% 0, 100% 70%, 88% 80%, 12% 80%, 0 70%);
+}
+
+.tower-light {
+  position: absolute;
+  top: 33%;
+  left: 50%;
+  width: 3px;
+  height: 50%;
+  background: var(--gate-red-bright);
+  box-shadow: 0 0 8px 2px rgba(255, 41, 72, 0.4);
+}
+
+/* =========================================================
+   PLATFORM AND FLOATING ISLAND
+========================================================= */
+
+.academy-platform {
+  position: absolute;
+  z-index: 3;
+  left: 5%;
+  bottom: 23%;
+  width: 90%;
+  height: 16%;
+  border-radius: 50%;
+  background: linear-gradient(
+    180deg,
+    #d7b6b5 0%,
+    #92758a 12%,
+    #555168 40%,
+    #242b42 82%
+  );
+  box-shadow:
+    0 0 12px rgba(255, 255, 255, 0.12),
+    0 0 32px rgba(255, 35, 65, 0.12),
+    inset 0 -14px 25px rgba(0, 0, 0, 0.8);
+}
+
+.academy-island {
+  position: absolute;
+  z-index: 2;
+  left: 7%;
+  bottom: 4%;
+  width: 86%;
+  height: 32%;
+}
+
+.island-grass {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 30%;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #bdb3bd, #514b53 55%, #1a191d);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+.island-cliff {
+  position: absolute;
+  top: 10%;
+  left: 3%;
+  width: 94%;
+  height: 90%;
+  background: linear-gradient(135deg, #373239, #1c1a1f 50%, #080809);
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    83% 44%,
+    70% 100%,
+    50% 74%,
+    29% 100%,
+    17% 42%
+  );
+}
+
+.island-crystal {
+  position: absolute;
+  z-index: 3;
+  top: 5%;
+  width: 3%;
+  height: 30%;
+  background: linear-gradient(180deg, #fff, #d65b70 40%, #750719);
+  clip-path: polygon(50% 0, 100% 40%, 65% 100%, 35% 100%, 0 40%);
+  filter: drop-shadow(0 0 8px rgba(255, 35, 65, 0.4));
+  animation: crystal-shine 3s ease-in-out infinite alternate;
+}
+
+.crystal-left {
+  left: 12%;
+}
+
+.crystal-right {
+  right: 12%;
+  animation-delay: 1s;
+}
+
+.academy-waterfall {
+  position: absolute;
+  z-index: 1;
+  top: 73%;
+  width: 6%;
+  height: 28%;
+  opacity: 0.35;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.7),
+    rgba(215, 25, 50, 0.2),
+    transparent
+  );
+  filter: blur(4px);
+  clip-path: polygon(20% 0, 80% 0, 100% 100%, 0 100%);
+  animation: waterfall-flow 3s linear infinite;
+}
+
+.waterfall-left {
+  left: 24%;
+}
+
+.waterfall-right {
+  right: 24%;
+  animation-delay: -1.5s;
+}
+
+/* Optional effects hidden */
+.sakura-field,
+.sakura-two,
+.sakura-three,
+.academy-enter,
+.academy-title,
+.academy-caption,
+.academy-hint {
+  display: none !important;
+}
+
+/* =========================================================
+   SCREEN EFFECTS
+========================================================= */
+
+.cinematic-vignette {
+  position: absolute;
+  z-index: 12;
+  inset: 0;
+  pointer-events: none;
+  box-shadow:
+    inset 0 0 80px rgba(36, 39, 66, 0.28),
+    inset 0 -80px 100px rgba(35, 39, 64, 0.2);
+}
+
+.cinematic-scanline {
+  position: absolute;
+  z-index: 13;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.025;
+  background: repeating-linear-gradient(
+    180deg,
+    transparent 0 4px,
+    rgba(255, 255, 255, 0.12) 5px,
+    transparent 6px
+  );
+}
+
+.cinematic-intro::before {
+  content: "";
+  position: absolute;
+  z-index: 40;
+  inset: -25%;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(104, 24, 45, 0.12) 0%,
+    rgba(150, 36, 60, 0.3) 15%,
+    rgba(76, 19, 39, 0.38) 34%,
+    rgba(25, 12, 25, 0.45) 55%,
+    transparent 75%
+  );
+  transform: scale(0.35);
+  mix-blend-mode: screen;
+}
+
+.cinematic-intro::after {
+  content: "";
+  position: absolute;
+  z-index: 39;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 8%,
+    rgba(28, 3, 12, 0.35) 42%,
+    rgba(5, 3, 9, 0.94) 100%
+  );
+}
+
+#gate-toggle:checked ~ .cinematic-intro::after {
+  opacity: 1;
+}
+
+/* =========================================================
+   SINGLE, OPTIMIZED ENTRY TRANSITION
+   One camera animation only — no conflicting keyframes
+========================================================= */
+
+#gate-toggle:checked ~ .cinematic-intro {
+  pointer-events: none;
+  animation: smooth-screen-exit 2.4s linear forwards;
+}
+
+#gate-toggle:checked ~ .cinematic-intro .academy-world {
+  animation: smooth-camera-zoom 2.35s cubic-bezier(0.4, 0, 0.65, 1) forwards;
+  transform-origin: 50% 63%;
+  translate: 0 0 !important;
+  will-change: transform, opacity;
+}
+
+#gate-toggle:checked ~ .cinematic-intro::before {
+  animation: smooth-energy-burst 1.8s ease-out forwards;
+}
+
+/* Pause secondary motion during the camera movement */
+#gate-toggle:checked ~ .cinematic-intro .academy-moon,
+#gate-toggle:checked ~ .cinematic-intro .academy-moon-halo,
+#gate-toggle:checked ~ .cinematic-intro .academy-clouds,
+#gate-toggle:checked ~ .cinematic-intro .floating-island,
+#gate-toggle:checked ~ .cinematic-intro .world-aura,
+#gate-toggle:checked ~ .cinematic-intro .academy-windows span,
+#gate-toggle:checked ~ .cinematic-intro .island-crystal,
+#gate-toggle:checked ~ .cinematic-intro .academy-waterfall {
+  animation-play-state: paused !important;
+}
+
+/* Continuous camera movement; avoid animated filters */
+@keyframes smooth-camera-zoom {
+  0% {
+    transform: translateX(-50%) scale(1);
+    opacity: 1;
+  }
+
+  30% {
+    transform: translateX(-50%) scale(1.35);
+    opacity: 1;
+  }
+
+  62% {
+    transform: translateX(-50%) scale(2.5);
+    opacity: 1;
+  }
+
+  85% {
+    transform: translateX(-50%) scale(4.2);
+    opacity: 0.85;
+  }
+
+  100% {
+    transform: translateX(-50%) scale(5.5);
+    opacity: 0;
+  }
+}
+
+@keyframes smooth-screen-exit {
+  0%,
+  76% {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  96% {
+    opacity: 0;
+    visibility: visible;
+  }
+
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes smooth-energy-burst {
+  0% {
+    opacity: 0;
+    transform: scale(0.25);
+  }
+
+  30% {
+    opacity: 0.3;
+    transform: scale(0.9);
+  }
+
+  65% {
+    opacity: 0.2;
+    transform: scale(1.4);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(2);
+  }
+}
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes moon-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-9px);
+  }
+}
+
+@keyframes halo-breathe {
+  0%,
+  100% {
+    transform: scale(0.98);
+    opacity: 0.55;
+  }
+  50% {
+    transform: scale(1.025);
+    opacity: 1;
+  }
+}
+
+@keyframes clouds-move {
+  from {
+    translate: -2% 0;
+  }
+  to {
+    translate: 2% 0;
+  }
+}
+
+@keyframes island-drift {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -9px;
+  }
+}
+
+@keyframes world-hover {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -6px;
+  }
+}
+
+@keyframes aura-pulse {
+  0%,
+  100% {
+    opacity: 0.5;
+    scale: 0.97;
+  }
+  50% {
+    opacity: 0.85;
+    scale: 1.035;
+  }
+}
+
+@keyframes windows-glow {
+  from {
+    filter: brightness(0.85);
+  }
+  to {
+    filter: brightness(1.25);
+  }
+}
+
+@keyframes crystal-shine {
+  from {
+    filter: brightness(0.85) drop-shadow(0 0 4px #b52d47);
+  }
+  to {
+    filter: brightness(1.25) drop-shadow(0 0 10px #ff2948);
+  }
+}
+
+@keyframes waterfall-flow {
+  from {
+    transform: translateY(-6px);
+    opacity: 0.2;
+  }
+  to {
+    transform: translateY(10px);
+    opacity: 0.4;
+  }
+}
+
+/* =========================================================
+   HOMEPAGE VISIBILITY
+========================================================= */
+
+.home-content {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+}
+
+/* =========================================================
+   RESPONSIVE DESIGN
+========================================================= */
+
+@media (max-width: 700px) {
+  .academy-moon {
+    top: 20%;
+    right: 5%;
+    width: 82px;
+  }
+
+  .academy-moon-halo {
+    top: 17%;
+    right: 0;
+    width: 125px;
+  }
+
+  .academy-world {
+    bottom: 15%;
+    width: 125vw;
+    height: 51vh;
+    min-height: 300px;
+  }
+
+  .academy-main-building {
+    width: 53%;
+    height: 70%;
+    bottom: 29%;
+  }
+
+  .academy-building-body {
+    left: 5%;
+    width: 90%;
+    height: 66%;
+  }
+
+  .academy-roof {
+    border-top-width: 2px;
+  }
+
+  .academy-sign {
+    top: 13%;
+    font-size: clamp(13px, 4vw, 21px);
+  }
+
+  .academy-windows {
+    top: 39%;
+    left: 9%;
+    right: 9%;
+    gap: 5%;
+  }
+
+  .academy-windows span {
+    height: clamp(22px, 4.5vh, 38px);
+  }
+
+  .academy-building-body .academy-entrance-light {
+    left: 34.5%;
+    width: 31%;
+    height: 33%;
+    border-width: 1px;
+  }
+
+  .academy-tower {
+    width: 19%;
+    height: 46%;
+    bottom: 30%;
+  }
+
+  .tower-left {
+    left: 5%;
+  }
+  .tower-right {
+    right: 5%;
+  }
+
+  .tower-body {
+    left: 15%;
+    width: 70%;
+  }
+
+  .academy-platform {
+    left: 3%;
+    width: 94%;
+    bottom: 23%;
+  }
+
+  .academy-island {
+    bottom: 5%;
+    width: 88%;
+    left: 6%;
+  }
+
+  .floating-island {
+    top: 47%;
+    width: 95px;
+    height: 90px;
+    opacity: 0.34;
+  }
+
+  .island-left {
+    left: -5%;
+  }
+  .island-right {
+    right: -5%;
+  }
+
+  .cloud-back {
+    top: 54%;
+    opacity: 0.16;
+  }
+
+  .cloud-front {
+    height: 27%;
+    opacity: 0.3;
+  }
+
+  .cinematic-vignette {
+    box-shadow: inset 0 0 65px rgba(0, 0, 0, 0.25);
+  }
+}
+
+@media (max-width: 380px) {
+  .academy-world {
+    width: 132vw;
+    height: 47vh;
+    bottom: 17%;
+    min-height: 270px;
+  }
+
+  .academy-main-building {
+    width: 55%;
+  }
+
+  .academy-tower {
+    width: 18%;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION ACCESSIBILITY
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .academy-moon,
+  .academy-moon-halo,
+  .academy-clouds,
+  .floating-island,
+  .academy-world,
+  .world-aura,
+  .academy-windows span,
+  .island-crystal,
+  .academy-waterfall {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+
+  .academy-building-body .academy-entrance-light::before,
+  .academy-building-body .academy-entrance-light::after {
+    transition-duration: 0.01ms !important;
+  }
+}
+/* =========================================================
+   FINAL SMOOTHNESS OVERRIDE
+   Preserve design • Smooth gate • No white flash
+========================================================= */
+
+/* Keep the intro on a stable rendering layer */
+.cinematic-intro {
+  background-color: #303750;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+}
+
+/* Avoid repeatedly animating the entire world while idle */
+.academy-world {
+  animation: none;
+  translate: 0 0;
+  will-change: auto;
+}
+
+/* Keep the gate swing, but remove its extra animated filters */
+.academy-building-body .academy-entrance-light::before,
+.academy-building-body .academy-entrance-light::after {
+  transition:
+    transform 1.1s cubic-bezier(0.2, 0.65, 0.25, 1);
+  will-change: transform;
+}
+
+#gate-toggle:checked
+  ~ .cinematic-intro
+  .academy-building-body
+  .academy-entrance-light::before,
+#gate-toggle:checked
+  ~ .cinematic-intro
+  .academy-building-body
+  .academy-entrance-light::after {
+  filter: none;
+}
+
+/* Disable decorative movement during entry */
+#gate-toggle:checked ~ .cinematic-intro .academy-moon,
+#gate-toggle:checked ~ .cinematic-intro .academy-moon-halo,
+#gate-toggle:checked ~ .cinematic-intro .academy-clouds,
+#gate-toggle:checked ~ .cinematic-intro .floating-island,
+#gate-toggle:checked ~ .cinematic-intro .world-aura,
+#gate-toggle:checked ~ .cinematic-intro .academy-windows span,
+#gate-toggle:checked ~ .cinematic-intro .island-crystal,
+#gate-toggle:checked ~ .cinematic-intro .academy-waterfall {
+  animation-play-state: paused !important;
+}
+
+/* Use one continuous zoom animation */
+#gate-toggle:checked ~ .cinematic-intro .academy-world {
+  animation: final-smooth-zoom 2.4s cubic-bezier(0.45, 0, 0.75, 1) forwards !important;
+  transform-origin: 50% 63%;
+  translate: 0 0 !important;
+  filter: none !important;
+  will-change: transform, opacity;
+}
+
+#gate-toggle:checked ~ .cinematic-intro {
+  animation: final-smooth-exit 2.5s linear forwards !important;
+  pointer-events: none;
+  will-change: opacity;
+}
+
+/* No bright flash at the end */
+#gate-toggle:checked ~ .cinematic-intro::after {
+  opacity: 1;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 8%,
+    rgba(28, 3, 12, 0.35) 42%,
+    rgba(5, 3, 9, 0.94) 100%
+  );
+}
+
+/* Remove the expensive energy overlay during zoom */
+#gate-toggle:checked ~ .cinematic-intro::before {
+  animation: none !important;
+  opacity: 0 !important;
+}
+
+/* Continuous zoom with no brightness/filter animation */
+@keyframes final-smooth-zoom {
+  0% {
+    transform: translate3d(-50%, 0, 0) scale(1);
+    opacity: 1;
+  }
+
+  40% {
+    transform: translate3d(-50%, 0, 0) scale(1.5);
+    opacity: 1;
+  }
+
+  75% {
+    transform: translate3d(-50%, 0, 0) scale(2.8);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate3d(-50%, 0, 0) scale(4.2);
+    opacity: 0;
+  }
+}
+
+@keyframes final-smooth-exit {
+  0%,
+  78% {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  99% {
+    opacity: 0;
+    visibility: visible;
+  }
+
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+/* Release animation layers after the transition */
+@media (prefers-reduced-motion: reduce) {
+  #gate-toggle:checked ~ .cinematic-intro .academy-world {
+    animation-duration: 0.01ms !important;
+  }
+}
