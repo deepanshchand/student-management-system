@@ -132,7 +132,7 @@ p {
 .about-hero::before {
     content: "";
     position: absolute;
-    z-index: -1;
+    z-home: -1;
     width: 280px;
     height: 280px;
     right: -75px;
@@ -331,7 +331,7 @@ p {
 
 .tech-card p {
     position: relative;
-    z-index: 1;
+    z-home: 1;
     font-size: 0.88rem;
     line-height: 1.75;
 }

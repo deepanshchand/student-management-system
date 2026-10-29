@@ -61,7 +61,7 @@ body::before,
 body::after {
   content: "";
   position: fixed;
-  z-index: -1;
+  z-home: -1;
   width: 280px;
   height: 280px;
   border-radius: 50%;
@@ -302,7 +302,7 @@ button[type="submit"]::before {
   left: -80%;
   width: 45%;
   height: 200%;
-  z-index: -1;
+  z-home: -1;
 
   background: linear-gradient(
     90deg,

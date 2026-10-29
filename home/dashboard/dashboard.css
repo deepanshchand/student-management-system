@@ -99,7 +99,7 @@ input:focus-visible {
 
 .background-orb {
   position: fixed;
-  z-index: -1;
+  z-home: -1;
   pointer-events: none;
   border-radius: 50%;
   filter: blur(2px);
@@ -771,7 +771,7 @@ input:focus-visible {
   min-width: 0;
 }
 
-.section-index {
+.section-home {
   margin-bottom: 3px;
   color: var(--teal);
   font-size: 11px;
@@ -779,7 +779,7 @@ input:focus-visible {
   letter-spacing: 0.8px;
 }
 
-.section-index span {
+.section-home span {
   margin-left: 6px;
   color: #718783;
   font-size: 10px;
@@ -1257,7 +1257,7 @@ tbody tr:hover .student-avatar {
 
 .mobile-overlay {
   position: fixed;
-  z-index: 90;
+  z-home: 90;
   inset: 0;
   visibility: hidden;
   background: #101b30a0;
@@ -1318,7 +1318,7 @@ tbody tr:hover .student-avatar {
 @media (max-width: 850px) {
   .sidebar {
     position: fixed;
-    z-index: 100;
+    z-home: 100;
     top: 0;
     bottom: 0;
     left: 0;
@@ -1504,7 +1504,7 @@ tbody tr:hover .student-avatar {
     font-size: 12px;
   }
 
-  .section-index span {
+  .section-home span {
     font-size: 9px;
   }
 
@@ -1705,7 +1705,7 @@ tbody tr:hover .student-avatar {
   transform: none;
 }
 
-/* Remove active Home highlight */
+/* Remove active home highlight */
 .nav-link.active {
   color: #c3d5d2;
   background: transparent;

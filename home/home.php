@@ -4,12 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#101010">
+    <meta name="theme-color" content="#075B59">
     <title>Student Management System</title>
 
     <link rel="stylesheet" href="door.css">
     <link rel="stylesheet" href="home.css">
     <link rel="stylesheet" href="navbar/navbar.css">
+    <link rel="stylesheet" href="footer/footer.css">
 </head>
 
 <body class="home-page">
@@ -73,7 +74,7 @@
                         <span></span>
                     </div>
 
-                    <!-- Click this actual gate to enter -->
+                    <!-- Click the gate to enter -->
                     <label for="gate-toggle" class="academy-entrance-light" aria-label="Open college gate"
                         title="Click the gate to enter">
                     </label>
@@ -107,13 +108,14 @@
 
     </section>
 
-    <!-- Homepage content -->
+    <!-- homepage content -->
     <div class="home-content">
 
         <?php include __DIR__ . '/navbar/navbar.php'; ?>
 
         <main>
 
+            <!-- Hero section -->
             <section class="home-hero">
 
                 <div class="hero-copy">
@@ -210,6 +212,7 @@
 
             </section>
 
+            <!-- Quick access section -->
             <section class="features-section" id="features">
 
                 <div class="section-heading">
@@ -246,18 +249,8 @@
 
         </main>
 
-        <footer class="home-footer">
-
-            <a href="home.php" class="footer-brand">
-                <span class="brand-icon">S</span>
-                <span>Student Management <strong>System</strong></span>
-            </a>
-
-            <span>© <?= date('Y') ?></span>
-
-            <a href="#features" class="back-to-top">Top ↑</a>
-
-        </footer>
+        <!-- Separate reusable footer -->
+        <?php include __DIR__ . '/footer/footer.php'; ?>
 
     </div>
 

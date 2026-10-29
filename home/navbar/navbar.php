@@ -3,11 +3,11 @@
 
     <a href="<?= e(app_url('home/home.php')) ?>" class="home-brand">
         <span class="brand-icon">S</span>
-        <span>Student<span class="brand-red">Hub</span></span>
+        <span>Management <span class="brand-red">System</span></span>
     </a>
 
     <div class="home-nav-links">
-        <a href="<?= e(app_url('home/home.php')) ?>" class="nav-home">Home</a>
+        <a href="<?= e(app_url('home/home.php')) ?>" class="nav-home">Home </a>
         <a href="<?= e(app_url('home/navbar/about.php')) ?>">About</a>
         <a href="<?= e(app_url('home/navbar/contact.php')) ?>">Contact Us</a>
 

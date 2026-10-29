@@ -376,7 +376,7 @@ a {
 
 .info-icon {
     position: relative;
-    z-index: 1;
+    z-home: 1;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -393,7 +393,7 @@ a {
 .info-card h3,
 .help-card h3 {
     position: relative;
-    z-index: 1;
+    z-home: 1;
     margin: 0 0 7px;
     color: var(--charcoal);
     font-size: 19px;
@@ -403,7 +403,7 @@ a {
 
 .info-card > p {
     position: relative;
-    z-index: 1;
+    z-home: 1;
     margin: 0;
     color: var(--text);
     font-size: 14px;
@@ -413,7 +413,7 @@ a {
 
 .info-note {
     position: relative;
-    z-index: 1;
+    z-home: 1;
     display: inline-block;
     margin-top: 13px;
     padding: 5px 11px;

@@ -76,7 +76,7 @@ $flash = get_flash();
 
                 <a class="nav-link active" href="../home.php">
                     <span class="nav-icon" aria-hidden="true">⌂</span>
-                    <span>Home</span>
+                    <span>home</span>
                 </a>
 
                 <a class="nav-link" href="../navbar/about.php">
@@ -189,7 +189,7 @@ $flash = get_flash();
             <section class="records-panel reveal" id="students">
                 <div class="panel-heading">
                     <div class="panel-title-group">
-                        <div class="section-index">01 <span>/ STUDENT RECORDS</span></div>
+                        <div class="section-home">01 <span>/ STUDENT RECORDS</span></div>
                         <h2>Student Directory</h2>
                         <p>Search, edit, or remove student records.</p>
                     </div>
