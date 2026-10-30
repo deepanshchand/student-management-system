@@ -1,9 +1,8 @@
 /* =========================================================
    STUDENT MANAGEMENT SYSTEM
    CINEMATIC ANIME COLLEGE ENTRANCE
-   DEEP TEAL • CHARCOAL • WHITE
-   COMPLETE CSS REPLACEMENT
-   Premium Japanese Double Gate • Cinematic Zoom
+   DEEP TEAL • CHARCOAL • CRIMSON RED • WHITE
+   FINAL CORRECTED DOOR CSS
 ========================================================= */
 
 :root {
@@ -16,18 +15,14 @@
   --gate-charcoal: #252d30;
   --gate-charcoal-light: #303a3d;
 
-  --gate-wine: #063c3b;
-  --gate-wine-mid: #075b59;
-  --gate-wine-light: #0b8982;
-  --gate-metal: #65c9c0;
-  --gate-metal-dark: #075b59;
-  --gate-edge: #65c9c0;
-  --gate-shadow: #071011;
-  --gate-glow: rgba(11, 137, 130, 0.4);
+  --crimson: #b51f38;
+  --crimson-bright: #ed334f;
+  --crimson-dark: #5e101f;
+  --crimson-glow: rgba(220, 35, 60, 0.55);
 }
 
 /* =========================================================
-   ENTRANCE CONTROLLER
+   GATE CONTROLLER
 ========================================================= */
 
 #gate-toggle {
@@ -52,7 +47,7 @@
   isolation: isolate;
   perspective: 1100px;
   color: var(--gate-white);
-  background: #10191b;
+  background: #030405;
   opacity: 1;
   visibility: visible;
   transform: translate3d(0, 0, 0);
@@ -63,23 +58,96 @@
   position: absolute;
   inset: 0;
   z-index: -5;
+  overflow: hidden;
   background:
     radial-gradient(
-      ellipse at 50% 58%,
-      rgba(101, 201, 192, 0.3) 0%,
-      rgba(11, 137, 130, 0.2) 28%,
-      transparent 68%
+      ellipse at 18% 42%,
+      rgba(190, 25, 48, 0.2),
+      transparent 43%
+    ),
+    radial-gradient(
+      ellipse at 82% 35%,
+      rgba(145, 20, 40, 0.17),
+      transparent 42%
+    ),
+    radial-gradient(
+      ellipse at 50% 65%,
+      rgba(11, 137, 130, 0.3),
+      transparent 58%
     ),
     linear-gradient(
       180deg,
-      #101719 0%,
-      #182526 23%,
-      #203b3c 42%,
-      #285453 57%,
-      #326b68 69%,
-      #203b3d 86%,
-      #101719 100%
+      #080b0d 0%,
+      #171b20 25%,
+      #252e32 45%,
+      #28504f 65%,
+      #183536 84%,
+      #080e0f 100%
     );
+  opacity: 0;
+  filter: brightness(0.4);
+  animation: sky-awakening 5s ease-out 0.4s forwards;
+}
+
+.academy-sky::before,
+.academy-sky::after {
+  content: "";
+  position: absolute;
+  inset: -35%;
+  border-radius: 50%;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+.academy-sky::before {
+  background:
+    radial-gradient(
+      ellipse at 25% 35%,
+      rgba(220, 35, 60, 0.25),
+      transparent 43%
+    ),
+    radial-gradient(
+      ellipse at 75% 50%,
+      rgba(160, 24, 48, 0.2),
+      transparent 45%
+    ),
+    linear-gradient(
+      115deg,
+      transparent 30%,
+      rgba(205, 35, 55, 0.1) 48%,
+      transparent 64%
+    ),
+    radial-gradient(
+      ellipse at 50% 60%,
+      rgba(101, 201, 192, 0.13),
+      transparent 55%
+    );
+  filter: blur(25px);
+  opacity: 0;
+  animation: crimson-aurora 20s ease-in-out 2s infinite alternate;
+}
+
+.academy-sky::after {
+  background:
+    radial-gradient(
+      ellipse at 70% 30%,
+      rgba(220, 35, 55, 0.18),
+      transparent 42%
+    ),
+    radial-gradient(
+      ellipse at 30% 60%,
+      rgba(150, 25, 45, 0.15),
+      transparent 46%
+    ),
+    linear-gradient(
+      72deg,
+      transparent 38%,
+      rgba(101, 201, 192, 0.07) 49%,
+      transparent 61%
+    );
+  filter: blur(32px);
+  opacity: 0;
+  animation: crimson-aurora 25s ease-in-out 3s infinite alternate-reverse;
 }
 
 .academy-stars,
@@ -89,8 +157,29 @@
 }
 
 /* =========================================================
-   MOON
+   MOON AND HALO
 ========================================================= */
+
+.academy-moon-halo {
+  position: absolute;
+  z-index: -4;
+  top: 3%;
+  right: 8%;
+  width: clamp(145px, 21vw, 270px);
+  aspect-ratio: 1;
+  border: 1px solid rgba(220, 45, 65, 0.3);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 12px rgba(101, 201, 192, 0.025),
+    0 0 0 28px rgba(11, 137, 130, 0.035),
+    0 0 45px 8px rgba(101, 201, 192, 0.09),
+    0 0 75px 10px rgba(190, 35, 55, 0.16);
+  opacity: 0;
+  scale: 0.75;
+  animation:
+    moon-halo-arrive 5s ease-out 1.2s forwards,
+    halo-breathe 8s ease-in-out 6.2s infinite;
+}
 
 .academy-moon {
   position: absolute;
@@ -102,12 +191,7 @@
   border-radius: 50%;
   overflow: hidden;
   background:
-    radial-gradient(
-      circle at 29% 25%,
-      #ffffff 0%,
-      #e2f5f3 27%,
-      transparent 48%
-    ),
+    radial-gradient(circle at 29% 25%, #fff 0%, #e2f5f3 27%, transparent 48%),
     radial-gradient(
       circle at 66% 38%,
       rgba(48, 58, 61, 0.35) 0 5%,
@@ -127,9 +211,13 @@
   box-shadow:
     inset -12px -7px 22px rgba(7, 16, 17, 0.3),
     inset 5px 4px 13px rgba(255, 255, 255, 0.55),
-    0 0 25px rgba(101, 201, 192, 0.2),
+    0 0 35px rgba(220, 35, 55, 0.25),
     0 0 65px rgba(11, 137, 130, 0.2);
-  animation: moon-float 8s ease-in-out infinite;
+  opacity: 0;
+  filter: brightness(0.5) sepia(0.3) saturate(1.5);
+  animation:
+    moon-arrive 4.5s ease-out 1.5s forwards,
+    moon-float 9s ease-in-out 6s infinite;
 }
 
 .academy-moon::before {
@@ -170,27 +258,10 @@
     rgba(21, 31, 32, 0.18) 72%,
     rgba(8, 14, 15, 0.42) 100%
   );
-  pointer-events: none;
-}
-
-.academy-moon-halo {
-  position: absolute;
-  z-index: -4;
-  top: 3%;
-  right: 8%;
-  width: clamp(145px, 21vw, 270px);
-  aspect-ratio: 1;
-  border: 1px solid rgba(101, 201, 192, 0.25);
-  border-radius: 50%;
-  box-shadow:
-    0 0 0 12px rgba(101, 201, 192, 0.025),
-    0 0 0 28px rgba(11, 137, 130, 0.035),
-    0 0 45px 8px rgba(101, 201, 192, 0.09);
-  animation: halo-breathe 7s ease-in-out infinite;
 }
 
 /* =========================================================
-   CLOUDS AND FLOATING ISLANDS
+   CLOUDS
 ========================================================= */
 
 .academy-clouds {
@@ -201,12 +272,12 @@
   pointer-events: none;
   border-radius: 50%;
   filter: blur(24px);
+  opacity: 0;
 }
 
 .cloud-back {
   z-index: 1;
   top: 49%;
-  opacity: 0.45;
   background:
     radial-gradient(
       ellipse at 22% 55%,
@@ -219,28 +290,38 @@
       transparent 42%
     ),
     radial-gradient(ellipse at 77% 60%, rgba(48, 58, 61, 0.65), transparent 43%);
-  animation: clouds-move 38s linear infinite;
+  animation:
+    fog-arrive 6s ease-in-out 2s forwards,
+    clouds-move 35s ease-in-out 8s infinite alternate;
 }
 
 .cloud-front {
   z-index: 8;
   bottom: -18%;
   height: 32%;
-  opacity: 0.42;
   background:
     radial-gradient(ellipse at 20% 65%, #303a3d, transparent 40%),
     radial-gradient(ellipse at 48% 70%, #151f20, transparent 44%),
     radial-gradient(ellipse at 78% 65%, #1c4948, transparent 42%);
-  animation: clouds-move 32s linear infinite reverse;
+  animation:
+    fog-arrive 6s ease-in-out 2.8s forwards,
+    clouds-move 30s ease-in-out 9s infinite alternate-reverse;
 }
+
+/* =========================================================
+   FLOATING ISLANDS
+========================================================= */
 
 .floating-island {
   position: absolute;
   z-index: 2;
   width: clamp(90px, 13vw, 170px);
   height: 105px;
-  opacity: 0.5;
-  animation: island-drift 8s ease-in-out infinite;
+  opacity: 0;
+  filter: brightness(0.7);
+  animation:
+    island-arrive 5s cubic-bezier(0.2, 0.7, 0.2, 1) 2.5s forwards,
+    island-drift 9s ease-in-out 8s infinite;
 }
 
 .island-left {
@@ -252,8 +333,8 @@
 .island-right {
   top: 41%;
   right: 3%;
-  animation-delay: -3s;
   transform: scale(0.9);
+  animation-delay: 3s, 8s;
 }
 
 .island-rock {
@@ -315,7 +396,6 @@
   min-height: 340px;
   transform: translate3d(-50%, 0, 0);
   transform-origin: center 63%;
-  animation: world-hover 7s ease-in-out infinite;
   backface-visibility: hidden;
 }
 
@@ -323,15 +403,28 @@
   position: absolute;
   inset: 0;
   border-radius: 50%;
-  background: radial-gradient(
-    ellipse at 50% 60%,
-    rgba(11, 137, 130, 0.25),
-    rgba(7, 91, 89, 0.12) 38%,
-    transparent 67%
-  );
+  background:
+    radial-gradient(
+      ellipse at 50% 55%,
+      rgba(11, 137, 130, 0.32),
+      rgba(7, 91, 89, 0.16) 38%,
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse at 50% 50%,
+      rgba(180, 20, 42, 0.15),
+      transparent 62%
+    );
   filter: blur(25px);
-  animation: aura-pulse 5s ease-in-out infinite;
+  opacity: 0;
+  animation:
+    aura-arrive 4s ease-out 3s forwards,
+    aura-pulse 7s ease-in-out 7s infinite;
 }
+
+/* =========================================================
+   MAIN BUILDING
+========================================================= */
 
 .academy-main-building {
   position: absolute;
@@ -364,6 +457,9 @@
   box-shadow:
     inset 0 0 35px rgba(0, 0, 0, 0.65),
     inset 0 0 12px rgba(101, 201, 192, 0.045);
+  clip-path: inset(100% 0 0 0);
+  filter: brightness(0.6);
+  animation: building-rise 5s cubic-bezier(0.2, 0.7, 0.2, 1) 5.8s forwards;
 }
 
 .academy-building-body::before {
@@ -401,21 +497,26 @@
   left: 0;
   width: 100%;
   background: linear-gradient(180deg, #465557 0%, #252d30 42%, #080e0f 100%);
-  border-top: 3px solid #65c9c0;
-  filter: drop-shadow(0 0 5px rgba(101, 201, 192, 0.14))
+  border-top: 3px solid #b52b43;
+  filter: drop-shadow(0 0 6px rgba(181, 43, 67, 0.25))
     drop-shadow(0 4px 7px rgba(0, 0, 0, 0.7));
+  opacity: 0;
+  translate: 0 -35px;
+  animation: roof-arrive 3.5s cubic-bezier(0.2, 0.7, 0.2, 1) 6s forwards;
 }
 
 .roof-top {
   top: 0;
   height: 21%;
   clip-path: polygon(50% 0, 100% 72%, 92% 78%, 82% 72%, 18% 72%, 8% 78%, 0 72%);
+  animation-delay: 7.8s;
 }
 
 .roof-middle {
   top: 19%;
   height: 23%;
   clip-path: polygon(50% 0, 100% 72%, 94% 79%, 85% 74%, 15% 74%, 6% 79%, 0 72%);
+  animation-delay: 7.2s;
 }
 
 .academy-roof::after {
@@ -425,9 +526,13 @@
   left: 18%;
   width: 64%;
   height: 3px;
-  background: var(--gate-teal-bright);
-  box-shadow: 0 0 8px rgba(101, 201, 192, 0.7);
+  background: linear-gradient(90deg, #075b59, #ed334f, #65c9c0);
+  box-shadow: 0 0 10px rgba(200, 59, 80, 0.55);
 }
+
+/* =========================================================
+   COLLEGE SIGN AND WINDOWS
+========================================================= */
 
 .academy-sign {
   position: absolute;
@@ -441,6 +546,9 @@
   font-weight: 700;
   white-space: nowrap;
   text-shadow: 0 0 8px rgba(101, 201, 192, 0.35);
+  opacity: 0;
+  translate: 0 15px;
+  animation: sign-arrive 2.5s ease-out 8.8s forwards;
 }
 
 .academy-windows {
@@ -468,20 +576,24 @@
   );
   box-shadow:
     0 0 10px rgba(11, 137, 130, 0.38),
+    0 0 15px rgba(190, 35, 55, 0.15),
     inset 0 0 10px rgba(255, 255, 255, 0.18);
-  animation: windows-glow 3s ease-in-out infinite alternate;
+  opacity: 0;
+  animation:
+    windows-light-up 2s ease-in-out 9.1s forwards,
+    windows-glow 4s ease-in-out 11.1s infinite alternate;
 }
 
 .academy-windows span:nth-child(2) {
-  animation-delay: 0.8s;
+  animation-delay: 9.5s, 11.5s;
 }
 
 .academy-windows span:nth-child(3) {
-  animation-delay: 1.4s;
+  animation-delay: 9.9s, 11.9s;
 }
 
 /* =========================================================
-   PREMIUM JAPANESE DOUBLE GATE
+   JAPANESE DOUBLE GATE
 ========================================================= */
 
 .academy-building-body .academy-entrance-light {
@@ -492,39 +604,40 @@
   width: 30%;
   height: 37%;
   display: block;
-  overflow: hidden;
+  overflow: visible;
   cursor: pointer;
   box-sizing: border-box;
-
-  border: 3px solid var(--gate-metal-dark);
+  pointer-events: auto;
+  border: 2px solid #8e263a;
   border-bottom: 0;
-  border-radius: 4px 4px 0 0;
-
-  background: linear-gradient(
-    90deg,
-    #080e0f 0%,
-    #12302f 48%,
-    #080e0f 52%,
-    #12302f 100%
-  );
-
+  border-radius: 3px 3px 0 0;
+  background:
+    radial-gradient(
+      ellipse at 50% 35%,
+      rgba(101, 201, 192, 0.2),
+      transparent 70%
+    ),
+    linear-gradient(180deg, #152526, #080e0f);
   box-shadow:
-    0 0 0 1px rgba(101, 201, 192, 0.65),
-    0 0 0 4px rgba(8, 14, 15, 0.85),
-    0 0 16px rgba(11, 137, 130, 0.24),
-    inset 0 0 18px rgba(0, 0, 0, 0.9);
-
-  perspective: 1000px;
+    0 0 0 2px rgba(8, 14, 15, 0.9),
+    0 0 20px rgba(181, 31, 56, 0.25),
+    inset 0 0 20px rgba(0, 0, 0, 0.8);
+  perspective: 1800px;
+  transform-style: preserve-3d;
   isolation: isolate;
+  opacity: 0;
+  visibility: hidden;
+  scale: 0.96;
+  animation:
+    gate-reveal 3.5s cubic-bezier(0.2, 0.7, 0.2, 1) 10.5s forwards,
+    gate-pulse 5s ease-in-out 14s infinite;
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
 }
 
-.academy-building-body .academy-entrance-light::selection {
-  background: transparent;
-}
-
-/* Double gate panels */
+/* =========================================================
+   DOUBLE GATE PANELS
+========================================================= */
 
 .academy-building-body .academy-entrance-light::before,
 .academy-building-body .academy-entrance-light::after {
@@ -535,134 +648,146 @@
   width: 50%;
   z-index: 2;
   box-sizing: border-box;
-  border: 1px solid var(--gate-edge);
-
   background:
-    repeating-linear-gradient(
-      90deg,
-      transparent 0 8px,
-      rgba(4, 20, 20, 0.65) 9px 11px,
-      transparent 12px 17px
-    ),
-    repeating-linear-gradient(
-      0deg,
-      transparent 0 15px,
-      rgba(4, 16, 16, 0.86) 16px 19px,
-      rgba(101, 201, 192, 0.16) 20px 21px,
-      transparent 22px 28px
+    linear-gradient(
+      180deg,
+      transparent 0 7%,
+      rgba(101, 201, 192, 0.22) 7.5% 8%,
+      transparent 8.5% 91%,
+      rgba(181, 31, 56, 0.55) 92% 93%,
+      transparent 93.5%
     ),
     linear-gradient(
       90deg,
-      #101a1b 0%,
-      #075b59 17%,
-      #0b8982 32%,
-      #064544 50%,
-      #08736e 73%,
-      #101a1b 100%
-    );
-
+      rgba(255, 255, 255, 0.04),
+      transparent 22% 78%,
+      rgba(0, 0, 0, 0.35)
+    ),
+    linear-gradient(135deg, #303a3d 0%, #1b2d2e 35%, #263c3b 55%, #142324 100%);
   box-shadow:
-    inset 0 0 0 2px rgba(4, 20, 20, 0.72),
-    inset 0 0 0 4px rgba(101, 201, 192, 0.2),
-    inset 0 0 13px rgba(0, 0, 0, 0.75);
-
-  transition: transform 1.1s cubic-bezier(0.2, 0.65, 0.25, 1);
+    inset 0 0 22px rgba(0, 0, 0, 0.7),
+    inset 0 0 5px rgba(101, 201, 192, 0.15),
+    inset 0 0 0 4px rgba(8, 14, 15, 0.45);
+  transform: translateZ(0) rotateY(0deg);
   transform-style: preserve-3d;
   backface-visibility: hidden;
+  transition: transform 3.4s cubic-bezier(0.65, 0, 0.35, 1);
   will-change: transform;
 }
 
-/* Left panel */
+/* Left gate panel */
 
 .academy-building-body .academy-entrance-light::before {
   left: 0;
   transform-origin: left center;
-  border-right: 2px solid #65c9c0;
-  box-shadow:
-    inset -3px 0 0 rgba(4, 20, 20, 0.8),
-    inset 0 0 0 3px rgba(4, 20, 20, 0.45),
-    inset 0 0 0 5px rgba(101, 201, 192, 0.16),
-    inset 0 0 14px rgba(0, 0, 0, 0.72);
+  border: 2px solid #8e263a;
+  border-right: 3px solid #ed334f;
+  border-left: 2px solid rgba(101, 201, 192, 0.35);
 }
 
-/* Right panel */
+/* Right gate panel */
 
 .academy-building-body .academy-entrance-light::after {
   right: 0;
   transform-origin: right center;
-  border-left: 2px solid #65c9c0;
-  box-shadow:
-    inset 3px 0 0 rgba(4, 20, 20, 0.8),
-    inset 0 0 0 3px rgba(4, 20, 20, 0.45),
-    inset 0 0 0 5px rgba(101, 201, 192, 0.16),
-    inset 0 0 14px rgba(0, 0, 0, 0.72);
+  border: 2px solid #8e263a;
+  border-left: 3px solid #ed334f;
+  border-right: 2px solid rgba(101, 201, 192, 0.35);
 }
 
-.academy-building-body .academy-entrance-light > * {
-  position: relative;
-  z-index: 1;
-}
-
-/* Central teal doorway line */
-
-.academy-building-body .academy-entrance-light {
-  background:
-    linear-gradient(
-      90deg,
-      transparent 48.5%,
-      #65c9c0 49%,
-      #075b59 50%,
-      #65c9c0 51%,
-      transparent 51.5%
-    ),
-    linear-gradient(180deg, #101a1b, #12302f);
-}
-
-/* Gate swing */
+/* =========================================================
+   OPEN BOTH GATES OUTWARD
+========================================================= */
 
 #gate-toggle:checked
   ~ .cinematic-intro
   .academy-building-body
   .academy-entrance-light::before {
-  transform: perspective(1000px) rotateY(-112deg);
+  transform: translateZ(0) rotateY(-115deg);
 }
 
 #gate-toggle:checked
   ~ .cinematic-intro
   .academy-building-body
   .academy-entrance-light::after {
-  transform: perspective(1000px) rotateY(112deg);
+  transform: translateZ(0) rotateY(115deg);
 }
+
+/* =========================================================
+   KEEP GATE VISIBLE AFTER CLICK
+========================================================= */
 
 #gate-toggle:checked
   ~ .cinematic-intro
   .academy-building-body
   .academy-entrance-light {
+  opacity: 1 !important;
+  visibility: visible !important;
+  scale: 1 !important;
+  animation: none !important;
+  pointer-events: none;
+
+  background: radial-gradient(
+    ellipse at center,
+    rgba(101, 201, 192, 0.32),
+    rgba(11, 137, 130, 0.16) 45%,
+    #080e0f 100%
+  );
+
   box-shadow:
-    0 0 0 1px rgba(101, 201, 192, 0.45),
-    0 0 0 4px rgba(8, 14, 15, 0.8),
-    0 0 22px rgba(11, 137, 130, 0.35),
-    inset 0 0 24px rgba(0, 0, 0, 0.85);
+    0 0 0 2px rgba(8, 14, 15, 0.8),
+    0 0 30px rgba(11, 137, 130, 0.45),
+    0 0 45px rgba(101, 201, 192, 0.2),
+    inset 0 0 25px rgba(0, 0, 0, 0.65);
 }
 
-/* Stairs */
+/* =========================================================
+   ARCHITECTURAL ENTRANCE STAIRS
+========================================================= */
 
 .academy-stairs {
   position: absolute;
-  z-index: -1;
+  z-index: 6;
   left: -11%;
-  bottom: -13%;
+  bottom: -15%;
   width: 122%;
-  height: 17%;
-  background: repeating-linear-gradient(
-    180deg,
-    #829e9b 0 2px,
-    #303a3d 3px 7px,
-    #151f20 8px 10px
-  );
-  border-top: 1px solid #65c9c0;
+  height: 19%;
+  background:
+    linear-gradient(180deg, rgba(101, 201, 192, 0.12), transparent 22%),
+    repeating-linear-gradient(
+      180deg,
+      #465557 0,
+      #465557 3px,
+      #252d30 4px,
+      #151f20 13px,
+      #080e0f 15px
+    );
+  border-top: 2px solid rgba(101, 201, 192, 0.55);
   clip-path: polygon(15% 0, 85% 0, 100% 100%, 0 100%);
-  filter: drop-shadow(0 0 10px rgba(11, 137, 130, 0.14));
+  box-shadow:
+    inset 0 5px 12px rgba(101, 201, 192, 0.1),
+    0 8px 18px rgba(0, 0, 0, 0.65);
+  filter: drop-shadow(0 0 7px rgba(11, 137, 130, 0.2))
+    drop-shadow(0 8px 10px rgba(0, 0, 0, 0.5));
+  opacity: 0;
+  transform: translateY(-18px) scaleY(0.85);
+  transform-origin: top center;
+  animation: stairs-construction 2.8s ease-out 8.5s forwards;
+}
+
+@keyframes stairs-construction {
+  0% {
+    opacity: 0;
+    transform: translateY(-18px) scaleY(0.85);
+  }
+  65% {
+    opacity: 1;
+    transform: translateY(3px) scaleY(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scaleY(1);
+  }
 }
 
 /* =========================================================
@@ -676,6 +801,9 @@
   width: 19%;
   height: 56%;
   filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.8));
+  opacity: 0;
+  translate: 0 55px;
+  animation: tower-rise 4s cubic-bezier(0.2, 0.7, 0.2, 1) 4s forwards;
 }
 
 .tower-left {
@@ -684,6 +812,7 @@
 
 .tower-right {
   right: 7%;
+  animation-delay: 4.8s;
 }
 
 .tower-body {
@@ -721,7 +850,7 @@
   width: 100%;
   height: 31%;
   background: linear-gradient(180deg, #465557, #252d30 60%, #080e0f);
-  border-top: 3px solid #65c9c0;
+  border-top: 3px solid #b52b43;
   clip-path: polygon(50% 0, 100% 70%, 88% 80%, 12% 80%, 0 70%);
 }
 
@@ -736,7 +865,7 @@
 }
 
 /* =========================================================
-   PLATFORM AND FLOATING ISLAND
+   PLATFORM AND ISLAND
 ========================================================= */
 
 .academy-platform {
@@ -756,8 +885,12 @@
   );
   box-shadow:
     0 0 12px rgba(101, 201, 192, 0.12),
-    0 0 32px rgba(11, 137, 130, 0.16),
+    0 0 30px rgba(11, 137, 130, 0.14),
+    0 0 45px rgba(190, 35, 55, 0.12),
     inset 0 -14px 25px rgba(0, 0, 0, 0.8);
+  opacity: 0;
+  scale: 0.8 1;
+  animation: platform-arrive 4s cubic-bezier(0.2, 0.7, 0.2, 1) 2.8s forwards;
 }
 
 .academy-island {
@@ -767,6 +900,9 @@
   bottom: 4%;
   width: 86%;
   height: 32%;
+  opacity: 0;
+  clip-path: inset(100% 0 0 0);
+  animation: island-build 4s ease-in-out 3.2s forwards;
 }
 
 .island-grass {
@@ -807,7 +943,7 @@
   background: linear-gradient(180deg, #e2f5f3, #0b8982 40%, #064544);
   clip-path: polygon(50% 0, 100% 40%, 65% 100%, 35% 100%, 0 40%);
   filter: drop-shadow(0 0 8px rgba(11, 137, 130, 0.45));
-  animation: crystal-shine 3s ease-in-out infinite alternate;
+  animation: crystal-shine 4s ease-in-out infinite alternate;
 }
 
 .crystal-left {
@@ -816,7 +952,7 @@
 
 .crystal-right {
   right: 12%;
-  animation-delay: 1s;
+  animation-delay: 1.5s;
 }
 
 .academy-waterfall {
@@ -825,7 +961,7 @@
   top: 73%;
   width: 6%;
   height: 28%;
-  opacity: 0.35;
+  opacity: 0;
   background: linear-gradient(
     180deg,
     rgba(226, 245, 243, 0.65),
@@ -834,7 +970,9 @@
   );
   filter: blur(4px);
   clip-path: polygon(20% 0, 80% 0, 100% 100%, 0 100%);
-  animation: waterfall-flow 3s linear infinite;
+  animation:
+    waterfall-arrive 3s ease-in-out 6s forwards,
+    waterfall-flow 4s ease-in-out 9s infinite alternate;
 }
 
 .waterfall-left {
@@ -843,23 +981,11 @@
 
 .waterfall-right {
   right: 24%;
-  animation-delay: -1.5s;
-}
-
-/* Optional effects hidden */
-
-.sakura-field,
-.sakura-two,
-.sakura-three,
-.academy-enter,
-.academy-title,
-.academy-caption,
-.academy-hint {
-  display: none !important;
+  animation-delay: 6.5s, 9.5s;
 }
 
 /* =========================================================
-   SCREEN EFFECTS
+   CINEMATIC SCREEN EFFECTS
 ========================================================= */
 
 .cinematic-vignette {
@@ -868,8 +994,8 @@
   inset: 0;
   pointer-events: none;
   box-shadow:
-    inset 0 0 80px rgba(8, 14, 15, 0.35),
-    inset 0 -80px 100px rgba(8, 14, 15, 0.25);
+    inset 0 0 100px rgba(8, 14, 15, 0.55),
+    inset 0 -80px 100px rgba(8, 14, 15, 0.3);
 }
 
 .cinematic-scanline {
@@ -915,94 +1041,431 @@
   background: radial-gradient(
     ellipse at center,
     transparent 8%,
-    rgba(8, 25, 25, 0.4) 42%,
-    rgba(3, 8, 9, 0.94) 100%
+    rgba(30, 12, 17, 0.48) 42%,
+    rgba(3, 8, 9, 0.96) 100%
   );
+  transition: opacity 0.8s ease;
 }
 
+/* Darken the scene after the gate has opened */
+
 #gate-toggle:checked ~ .cinematic-intro::after {
-  opacity: 1;
+  opacity: 0.65;
+  transition-delay: 3.4s;
 }
 
 /* =========================================================
-   CINEMATIC ENTRY TRANSITION
+   OPEN THE GATE TEXT
+========================================================= */
+
+.academy-world::after {
+  content: "OPEN THE GATE";
+  position: absolute;
+  z-index: 30;
+  left: 50%;
+  bottom: 2%;
+  transform: translateX(-50%);
+  color: #fff;
+  font-family: Georgia, serif;
+  font-size: clamp(13px, 2vw, 21px);
+  font-weight: 700;
+  letter-spacing: 5px;
+  white-space: nowrap;
+  text-shadow:
+    0 0 8px #ed334f,
+    0 0 18px #b51f38,
+    0 0 32px rgba(220, 35, 60, 0.75);
+  opacity: 0;
+  pointer-events: none;
+  animation:
+    invitation-reveal 1.8s ease-out 13.2s forwards,
+    invitation-glow 3.5s ease-in-out 15s infinite;
+}
+
+@keyframes invitation-reveal {
+  from {
+    opacity: 0;
+    translate: 0 15px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+@keyframes invitation-glow {
+  0%,
+  100% {
+    text-shadow:
+      0 0 8px #ed334f,
+      0 0 18px #b51f38;
+    opacity: 0.85;
+  }
+  50% {
+    text-shadow:
+      0 0 14px #fff,
+      0 0 30px #ed334f,
+      0 0 45px #b51f38;
+    opacity: 1;
+  }
+}
+
+/* =========================================================
+   GATE CLICK — OPEN → INSTANT ZOOM → HOMEPAGE
+
+   0.0s - 3.4s : Both gate panels open
+   3.4s - 5.8s : Continuous camera zoom
+   5.8s onward : Intro fades away and homepage appears
 ========================================================= */
 
 #gate-toggle:checked ~ .cinematic-intro {
   pointer-events: none;
-  animation: final-smooth-exit 2.5s linear forwards;
-  will-change: opacity;
+  animation: intro-exit 0.9s ease-in 5.8s forwards;
 }
+
+/* Zoom begins immediately after the gate finishes opening */
 
 #gate-toggle:checked ~ .cinematic-intro .academy-world {
-  animation: final-smooth-zoom 2.4s cubic-bezier(0.45, 0, 0.75, 1) forwards;
+  animation: world-zoom 2.4s cubic-bezier(0.45, 0, 0.2, 1) 3.4s forwards !important;
   transform-origin: 50% 63%;
   translate: 0 0 !important;
-  filter: none !important;
-  will-change: transform, opacity;
+  will-change: transform;
 }
 
-#gate-toggle:checked ~ .cinematic-intro .academy-moon,
-#gate-toggle:checked ~ .cinematic-intro .academy-moon-halo,
-#gate-toggle:checked ~ .cinematic-intro .academy-clouds,
-#gate-toggle:checked ~ .cinematic-intro .floating-island,
-#gate-toggle:checked ~ .cinematic-intro .world-aura,
-#gate-toggle:checked ~ .cinematic-intro .academy-windows span,
-#gate-toggle:checked ~ .cinematic-intro .island-crystal,
-#gate-toggle:checked ~ .cinematic-intro .academy-waterfall {
-  animation-play-state: paused !important;
-}
+/* Hide invitation text after clicking */
 
-/* Prevent a bright white flash */
-
-#gate-toggle:checked ~ .cinematic-intro::after {
-  opacity: 1;
-  background: radial-gradient(
-    ellipse at center,
-    transparent 8%,
-    rgba(8, 25, 25, 0.4) 42%,
-    rgba(3, 8, 9, 0.94) 100%
-  );
-}
-
-#gate-toggle:checked ~ .cinematic-intro::before {
-  animation: none !important;
+#gate-toggle:checked ~ .cinematic-intro .academy-world::after {
   opacity: 0 !important;
+  animation: none !important;
 }
 
-/* Smooth zoom */
+/* =========================================================
+   KEYFRAMES
+========================================================= */
 
-@keyframes final-smooth-zoom {
+@keyframes sky-awakening {
+  0% {
+    opacity: 0;
+    filter: brightness(0.15) saturate(0.4);
+  }
+  60% {
+    opacity: 1;
+    filter: brightness(0.7) saturate(1.2);
+  }
+  100% {
+    opacity: 1;
+    filter: brightness(1) saturate(1.1);
+  }
+}
+
+@keyframes crimson-aurora {
+  0% {
+    transform: translate3d(-4%, -2%, 0) rotate(-4deg) scale(1);
+    opacity: 0.25;
+  }
+  50% {
+    transform: translate3d(2%, 2%, 0) rotate(2deg) scale(1.08);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate3d(5%, -2%, 0) rotate(5deg) scale(1.04);
+    opacity: 0.55;
+  }
+}
+
+@keyframes moon-halo-arrive {
+  from {
+    opacity: 0;
+    scale: 0.75;
+  }
+  to {
+    opacity: 0.75;
+    scale: 1;
+  }
+}
+
+@keyframes moon-arrive {
+  from {
+    opacity: 0;
+    filter: brightness(0.3) sepia(0.5) saturate(2);
+  }
+  to {
+    opacity: 1;
+    filter: brightness(1) sepia(0.15) saturate(1.5);
+  }
+}
+
+@keyframes moon-float {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -8px;
+  }
+}
+
+@keyframes halo-breathe {
+  0%,
+  100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 0.95;
+  }
+}
+
+@keyframes fog-arrive {
+  from {
+    opacity: 0;
+    translate: -35px 12px;
+  }
+  to {
+    opacity: 0.5;
+    translate: 0 0;
+  }
+}
+
+@keyframes clouds-move {
+  from {
+    translate: -2% 0;
+  }
+  to {
+    translate: 2% 0;
+  }
+}
+
+@keyframes island-arrive {
+  from {
+    opacity: 0;
+    translate: 0 45px;
+    filter: brightness(0.5);
+  }
+  to {
+    opacity: 0.5;
+    translate: 0 0;
+    filter: brightness(1);
+  }
+}
+
+@keyframes island-drift {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -8px;
+  }
+}
+
+@keyframes aura-arrive {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.65;
+  }
+}
+
+@keyframes aura-pulse {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.85;
+  }
+}
+
+@keyframes platform-arrive {
+  from {
+    opacity: 0;
+    scale: 0.8 1;
+    filter: brightness(0.5);
+  }
+  to {
+    opacity: 1;
+    scale: 1 1;
+    filter: brightness(1);
+  }
+}
+
+@keyframes island-build {
+  to {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes tower-rise {
+  from {
+    opacity: 0;
+    translate: 0 55px;
+    filter: brightness(0.5);
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+    filter: brightness(1);
+  }
+}
+
+@keyframes building-rise {
+  0% {
+    clip-path: inset(100% 0 0 0);
+    filter: brightness(0.4);
+  }
+  65% {
+    clip-path: inset(15% 0 0 0);
+    filter: brightness(0.85);
+  }
+  100% {
+    clip-path: inset(0 0 0 0);
+    filter: brightness(1);
+  }
+}
+
+@keyframes roof-arrive {
+  from {
+    opacity: 0;
+    translate: 0 -35px;
+    filter: brightness(0.5);
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+    filter: brightness(1);
+  }
+}
+
+@keyframes sign-arrive {
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+@keyframes windows-light-up {
+  0% {
+    opacity: 0;
+    filter: brightness(0.3);
+  }
+  65% {
+    opacity: 1;
+    filter: brightness(1.8);
+  }
+  100% {
+    opacity: 1;
+    filter: brightness(1.1);
+  }
+}
+
+@keyframes windows-glow {
+  from {
+    filter: brightness(0.9);
+  }
+  to {
+    filter: brightness(1.2);
+  }
+}
+
+@keyframes gate-reveal {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+    scale: 0.96;
+    box-shadow: 0 0 0 rgba(180, 0, 25, 0);
+  }
+  65% {
+    opacity: 1;
+    visibility: visible;
+    scale: 1.025;
+    box-shadow: 0 0 38px rgba(220, 35, 60, 0.65);
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+    scale: 1;
+    box-shadow:
+      0 0 0 1px rgba(220, 50, 65, 0.65),
+      0 0 22px rgba(180, 0, 25, 0.55),
+      0 0 45px rgba(120, 0, 15, 0.3),
+      inset 0 0 18px rgba(0, 0, 0, 0.9);
+  }
+}
+
+@keyframes gate-pulse {
+  0%,
+  100% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.18);
+    box-shadow:
+      0 0 0 1px rgba(220, 50, 65, 0.8),
+      0 0 30px rgba(180, 0, 25, 0.65),
+      0 0 48px rgba(120, 0, 15, 0.35);
+  }
+}
+
+@keyframes crystal-shine {
+  from {
+    filter: brightness(0.85) drop-shadow(0 0 4px #0b8982);
+  }
+  to {
+    filter: brightness(1.2) drop-shadow(0 0 9px #65c9c0);
+  }
+}
+
+@keyframes waterfall-arrive {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.35;
+  }
+}
+
+@keyframes waterfall-flow {
+  from {
+    transform: translateY(-5px);
+    opacity: 0.2;
+  }
+  to {
+    transform: translateY(8px);
+    opacity: 0.4;
+  }
+}
+
+/* =========================================================
+   CAMERA ZOOM — CONTINUOUS FORWARD MOVEMENT
+========================================================= */
+
+@keyframes world-zoom {
   0% {
     transform: translate3d(-50%, 0, 0) scale(1);
-    opacity: 1;
   }
 
   40% {
-    transform: translate3d(-50%, 0, 0) scale(1.5);
-    opacity: 1;
+    transform: translate3d(-50%, 0, 0) scale(1.6);
   }
 
   75% {
-    transform: translate3d(-50%, 0, 0) scale(2.8);
-    opacity: 1;
+    transform: translate3d(-50%, 0, 0) scale(3);
   }
 
   100% {
     transform: translate3d(-50%, 0, 0) scale(4.2);
-    opacity: 0;
   }
 }
 
-@keyframes final-smooth-exit {
-  0%,
-  78% {
-    opacity: 1;
-    visibility: visible;
-  }
+/* =========================================================
+   INTRO DISAPPEARS AFTER ZOOM
+========================================================= */
 
-  99% {
-    opacity: 0;
+@keyframes intro-exit {
+  0% {
+    opacity: 1;
     visibility: visible;
   }
 
@@ -1013,112 +1476,21 @@
 }
 
 /* =========================================================
-   IDLE ANIMATIONS
+   HIDE UNUSED ELEMENTS
 ========================================================= */
 
-@keyframes moon-float {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(-9px);
-  }
-}
-
-@keyframes halo-breathe {
-  0%,
-  100% {
-    transform: scale(0.98);
-    opacity: 0.55;
-  }
-
-  50% {
-    transform: scale(1.025);
-    opacity: 1;
-  }
-}
-
-@keyframes clouds-move {
-  from {
-    translate: -2% 0;
-  }
-
-  to {
-    translate: 2% 0;
-  }
-}
-
-@keyframes island-drift {
-  0%,
-  100% {
-    translate: 0 0;
-  }
-
-  50% {
-    translate: 0 -9px;
-  }
-}
-
-@keyframes world-hover {
-  0%,
-  100% {
-    translate: 0 0;
-  }
-
-  50% {
-    translate: 0 -6px;
-  }
-}
-
-@keyframes aura-pulse {
-  0%,
-  100% {
-    opacity: 0.5;
-    scale: 0.97;
-  }
-
-  50% {
-    opacity: 0.85;
-    scale: 1.035;
-  }
-}
-
-@keyframes windows-glow {
-  from {
-    filter: brightness(0.85);
-  }
-
-  to {
-    filter: brightness(1.2);
-  }
-}
-
-@keyframes crystal-shine {
-  from {
-    filter: brightness(0.85) drop-shadow(0 0 4px #0b8982);
-  }
-
-  to {
-    filter: brightness(1.2) drop-shadow(0 0 9px #65c9c0);
-  }
-}
-
-@keyframes waterfall-flow {
-  from {
-    transform: translateY(-6px);
-    opacity: 0.2;
-  }
-
-  to {
-    transform: translateY(10px);
-    opacity: 0.4;
-  }
+.academy-enter,
+.academy-title,
+.academy-caption,
+.academy-hint,
+.sakura-field,
+.sakura-two,
+.sakura-three {
+  display: none !important;
 }
 
 /* =========================================================
-   homePAGE VISIBILITY
+   HOMEPAGE VISIBILITY
 ========================================================= */
 
 .home-content {
@@ -1187,33 +1559,27 @@
     left: 34.5%;
     width: 31%;
     height: 33%;
-    border-width: 2px;
   }
 
   .academy-building-body .academy-entrance-light::before,
   .academy-building-body .academy-entrance-light::after {
     border-width: 1px;
     background:
-      repeating-linear-gradient(
-        90deg,
-        transparent 0 5px,
-        rgba(4, 20, 20, 0.58) 6px 7px,
-        transparent 8px 11px
-      ),
-      repeating-linear-gradient(
-        0deg,
-        transparent 0 10px,
-        rgba(4, 16, 16, 0.85) 11px 13px,
-        rgba(101, 201, 192, 0.14) 14px 15px,
-        transparent 16px 20px
+      linear-gradient(
+        180deg,
+        transparent 0 7%,
+        rgba(101, 201, 192, 0.22) 7.5% 8%,
+        transparent 8.5% 91%,
+        rgba(181, 31, 56, 0.55) 92% 93%,
+        transparent 93.5%
       ),
       linear-gradient(
         90deg,
-        #101a1b 0%,
-        #075b59 25%,
-        #0b8982 45%,
-        #064544 65%,
-        #101a1b 100%
+        #080e0f 0%,
+        #182728 18%,
+        #253c3b 48%,
+        #182728 82%,
+        #080e0f 100%
       );
   }
 
@@ -1265,12 +1631,16 @@
 
   .cloud-back {
     top: 54%;
-    opacity: 0.16;
   }
 
   .cloud-front {
     height: 27%;
-    opacity: 0.3;
+  }
+
+  .academy-world::after {
+    bottom: -1%;
+    font-size: 12px;
+    letter-spacing: 3px;
   }
 
   .cinematic-vignette {
@@ -1300,424 +1670,36 @@
 ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
+  .cinematic-intro,
+  .academy-sky,
+  .academy-sky::before,
+  .academy-sky::after,
   .academy-moon,
   .academy-moon-halo,
   .academy-clouds,
   .floating-island,
-  .academy-world,
   .world-aura,
+  .academy-platform,
+  .academy-island,
+  .academy-tower,
+  .academy-building-body,
+  .academy-roof,
+  .academy-sign,
   .academy-windows span,
-  .island-crystal,
-  .academy-waterfall {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
+  .academy-waterfall,
+  .academy-building-body .academy-entrance-light,
+  .academy-world::after {
+    animation: none !important;
+    opacity: 1;
+    visibility: visible;
+    clip-path: none;
+    translate: none;
+    scale: 1;
+    filter: none;
   }
 
   .academy-building-body .academy-entrance-light::before,
   .academy-building-body .academy-entrance-light::after {
     transition-duration: 0.01ms !important;
   }
-
-  #gate-toggle:checked ~ .cinematic-intro .academy-world {
-    animation-duration: 0.01ms !important;
-  }
-}
-
-/* =========================================================
-   FINAL PERFORMANCE OVERRIDE
-========================================================= */
-
-.cinematic-intro {
-  background-color: #10191b;
-  transform: translate3d(0, 0, 0);
-  backface-visibility: hidden;
-}
-
-/* Avoid continuous movement of the full college */
-
-.academy-world {
-  animation: none;
-  translate: 0 0;
-  will-change: auto;
-}
-
-/* Preserve gate animation with transform-only transitions */
-
-.academy-building-body .academy-entrance-light::before,
-.academy-building-body .academy-entrance-light::after {
-  transition: transform 1.1s cubic-bezier(0.2, 0.65, 0.25, 1);
-  will-change: transform;
-}
-
-#gate-toggle:checked
-  ~ .cinematic-intro
-  .academy-building-body
-  .academy-entrance-light::before,
-#gate-toggle:checked
-  ~ .cinematic-intro
-  .academy-building-body
-  .academy-entrance-light::after {
-  filter: none;
-}
-
-/* One camera zoom, no conflicting animations */
-
-#gate-toggle:checked ~ .cinematic-intro .academy-world {
-  animation: final-smooth-zoom 2.4s cubic-bezier(0.45, 0, 0.75, 1) forwards !important;
-  transform-origin: 50% 63%;
-  translate: 0 0 !important;
-  filter: none !important;
-  will-change: transform, opacity;
-}
-
-#gate-toggle:checked ~ .cinematic-intro {
-  animation: final-smooth-exit 2.5s linear forwards !important;
-  pointer-events: none;
-  will-change: opacity;
-}
-
-/* End of complete replacement CSS */
-
-/* =========================================================
-   CINEMATIC ANIMATED BACKGROUND
-   Deep Teal • Charcoal • Moving Aurora • Floating Mist
-   Append at the END of your existing CSS
-========================================================= */
-
-/* Richer animated night sky */
-.academy-sky {
-  overflow: hidden;
-  background:
-    radial-gradient(
-      ellipse at 50% 65%,
-      rgba(11, 137, 130, 0.34),
-      transparent 58%
-    ),
-    linear-gradient(
-      180deg,
-      #101719 0%,
-      #182526 24%,
-      #203b3c 44%,
-      #285453 62%,
-      #173635 82%,
-      #101719 100%
-    );
-}
-
-/* Moving teal aurora waves */
-.academy-sky::before,
-.academy-sky::after {
-  content: "";
-  position: absolute;
-  inset: -35%;
-  pointer-events: none;
-  border-radius: 50%;
-  will-change: transform, opacity;
-}
-
-.academy-sky::before {
-  background:
-    radial-gradient(
-      ellipse at 28% 38%,
-      rgba(101, 201, 192, 0.24) 0%,
-      rgba(11, 137, 130, 0.13) 24%,
-      transparent 53%
-    ),
-    radial-gradient(
-      ellipse at 72% 54%,
-      rgba(7, 91, 89, 0.42) 0%,
-      rgba(11, 137, 130, 0.12) 34%,
-      transparent 62%
-    ),
-    linear-gradient(
-      118deg,
-      transparent 25%,
-      rgba(101, 201, 192, 0.09) 43%,
-      transparent 58%
-    );
-  filter: blur(22px);
-  opacity: 0.9;
-  animation: teal-aurora-drift 18s ease-in-out infinite alternate;
-}
-
-.academy-sky::after {
-  background:
-    radial-gradient(
-      ellipse at 65% 35%,
-      rgba(11, 137, 130, 0.24),
-      transparent 42%
-    ),
-    radial-gradient(
-      ellipse at 35% 70%,
-      rgba(101, 201, 192, 0.13),
-      transparent 45%
-    ),
-    linear-gradient(
-      72deg,
-      transparent 38%,
-      rgba(101, 201, 192, 0.08) 49%,
-      transparent 61%
-    );
-  filter: blur(30px);
-  opacity: 0.7;
-  animation: teal-aurora-flow 24s ease-in-out infinite alternate;
-}
-
-/* Slow-moving cinematic light */
-@keyframes teal-aurora-drift {
-  0% {
-    transform: translate3d(-5%, -2%, 0) rotate(-5deg) scale(1);
-    opacity: 0.55;
-  }
-
-  50% {
-    transform: translate3d(3%, 3%, 0) rotate(3deg) scale(1.08);
-    opacity: 1;
-  }
-
-  100% {
-    transform: translate3d(6%, -3%, 0) rotate(7deg) scale(1.03);
-    opacity: 0.7;
-  }
-}
-
-@keyframes teal-aurora-flow {
-  0% {
-    transform: translate3d(4%, 2%, 0) rotate(6deg) scale(1.04);
-    opacity: 0.45;
-  }
-
-  50% {
-    transform: translate3d(-4%, -3%, 0) rotate(-4deg) scale(1.12);
-    opacity: 0.85;
-  }
-
-  100% {
-    transform: translate3d(2%, 4%, 0) rotate(2deg) scale(1);
-    opacity: 0.6;
-  }
-}
-
-/* More visible drifting clouds */
-.cloud-back {
-  opacity: 0.52;
-  animation: clouds-move 28s ease-in-out infinite alternate;
-}
-
-.cloud-front {
-  opacity: 0.38;
-  animation: clouds-move 23s ease-in-out infinite alternate-reverse;
-}
-
-/* Soft ambient glow behind the floating college */
-.world-aura {
-  background: radial-gradient(
-    ellipse at 50% 55%,
-    rgba(11, 137, 130, 0.32),
-    rgba(7, 91, 89, 0.16) 38%,
-    transparent 70%
-  );
-}
-
-/* Keep background movement gentle on smaller screens */
-@media (max-width: 700px) {
-  .academy-sky::before {
-    filter: blur(16px);
-    animation-duration: 24s;
-  }
-
-  .academy-sky::after {
-    filter: blur(20px);
-    animation-duration: 30s;
-  }
-
-  .cloud-back {
-    opacity: 0.3;
-  }
-
-  .cloud-front {
-    opacity: 0.25;
-  }
-}
-
-/* Pause background motion during the cinematic exit */
-#gate-toggle:checked ~ .cinematic-intro .academy-sky::before,
-#gate-toggle:checked ~ .cinematic-intro .academy-sky::after {
-  animation-play-state: paused;
-}
-
-/* Respect reduced-motion preferences */
-@media (prefers-reduced-motion: reduce) {
-  .academy-sky::before,
-  .academy-sky::after {
-    animation: none !important;
-  }
-}
-
-/* =========================================================
-   CINEMATIC CRIMSON ACCENT
-   Deep Teal + Charcoal + Subtle Red
-========================================================= */
-
-/* Red atmosphere across the sky */
-.academy-sky {
-  background:
-    radial-gradient(
-      ellipse at 18% 42%,
-      rgba(190, 35, 55, 0.19),
-      transparent 42%
-    ),
-    radial-gradient(
-      ellipse at 82% 36%,
-      rgba(160, 24, 48, 0.16),
-      transparent 40%
-    ),
-    radial-gradient(
-      ellipse at 50% 65%,
-      rgba(11, 137, 130, 0.32),
-      transparent 58%
-    ),
-    linear-gradient(
-      180deg,
-      #101719 0%,
-      #202326 24%,
-      #293536 44%,
-      #285453 62%,
-      #173635 82%,
-      #101719 100%
-    );
-}
-
-/* Slowly moving crimson aurora */
-.academy-sky::before {
-  background:
-    radial-gradient(
-      ellipse at 25% 35%,
-      rgba(220, 45, 65, 0.23),
-      transparent 42%
-    ),
-    radial-gradient(
-      ellipse at 75% 50%,
-      rgba(160, 24, 48, 0.2),
-      transparent 45%
-    ),
-    linear-gradient(
-      115deg,
-      transparent 30%,
-      rgba(205, 35, 55, 0.09) 48%,
-      transparent 64%
-    ),
-    radial-gradient(
-      ellipse at 50% 60%,
-      rgba(101, 201, 192, 0.13),
-      transparent 55%
-    );
-}
-
-/* Red tint mixed into the second light layer */
-.academy-sky::after {
-  background:
-    radial-gradient(
-      ellipse at 70% 30%,
-      rgba(220, 35, 55, 0.16),
-      transparent 42%
-    ),
-    radial-gradient(
-      ellipse at 30% 60%,
-      rgba(150, 25, 45, 0.15),
-      transparent 46%
-    ),
-    linear-gradient(
-      72deg,
-      transparent 38%,
-      rgba(101, 201, 192, 0.07) 49%,
-      transparent 61%
-    );
-}
-
-/* Subtle crimson halo around the moon */
-.academy-moon-halo {
-  box-shadow:
-    0 0 0 12px rgba(101, 201, 192, 0.025),
-    0 0 0 28px rgba(11, 137, 130, 0.035),
-    0 0 45px 8px rgba(101, 201, 192, 0.09),
-    0 0 75px 10px rgba(190, 35, 55, 0.12);
-}
-
-/* Red reflections in the college roofs */
-.academy-roof,
-.tower-roof {
-  border-top-color: #b52b43;
-  filter: drop-shadow(0 0 5px rgba(181, 43, 67, 0.25))
-    drop-shadow(0 4px 7px rgba(0, 0, 0, 0.7));
-}
-
-.academy-roof::after {
-  background: linear-gradient(90deg, #075b59, #c83b50, #65c9c0);
-  box-shadow: 0 0 9px rgba(200, 59, 80, 0.45);
-}
-
-/* Crimson highlights on the double gate */
-.academy-building-body .academy-entrance-light {
-  box-shadow:
-    0 0 0 1px rgba(190, 35, 55, 0.55),
-    0 0 0 4px rgba(8, 14, 15, 0.85),
-    0 0 18px rgba(190, 35, 55, 0.2),
-    0 0 16px rgba(11, 137, 130, 0.2),
-    inset 0 0 18px rgba(0, 0, 0, 0.9);
-}
-
-.academy-building-body .academy-entrance-light::before,
-.academy-building-body .academy-entrance-light::after {
-  border-color: #a72b40;
-  background:
-    repeating-linear-gradient(
-      90deg,
-      transparent 0 8px,
-      rgba(4, 20, 20, 0.65) 9px 11px,
-      transparent 12px 17px
-    ),
-    repeating-linear-gradient(
-      0deg,
-      transparent 0 15px,
-      rgba(4, 16, 16, 0.86) 16px 19px,
-      rgba(190, 35, 55, 0.2) 20px 21px,
-      transparent 22px 28px
-    ),
-    linear-gradient(
-      90deg,
-      #101a1b 0%,
-      #075b59 22%,
-      #0b8982 40%,
-      #563039 52%,
-      #8e263a 72%,
-      #101a1b 100%
-    );
-}
-
-.academy-building-body .academy-entrance-light::before {
-  border-right-color: #c83b50;
-}
-
-.academy-building-body .academy-entrance-light::after {
-  border-left-color: #c83b50;
-}
-
-/* Crimson glow around the floating island */
-.academy-platform {
-  box-shadow:
-    0 0 12px rgba(101, 201, 192, 0.12),
-    0 0 30px rgba(11, 137, 130, 0.14),
-    0 0 45px rgba(190, 35, 55, 0.12),
-    inset 0 -14px 25px rgba(0, 0, 0, 0.8);
-}
-
-/* Keep the entry transition dark, never white */
-#gate-toggle:checked ~ .cinematic-intro::after {
-  background: radial-gradient(
-    ellipse at center,
-    transparent 8%,
-    rgba(30, 12, 17, 0.48) 42%,
-    rgba(3, 8, 9, 0.96) 100%
-  );
 }

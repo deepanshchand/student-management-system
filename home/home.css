@@ -68,8 +68,7 @@ a {
 }
 
 /* ==========================================================
-   ENTRANCE / homePAGE VISIBILITY
-   Existing door.css entrance controller preserved
+   ENTRANCE / HOMEPAGE VISIBILITY
 ========================================================== */
 
 #gate-toggle {
@@ -127,7 +126,7 @@ a {
 .home-hero::before {
   content: "";
   position: absolute;
-  z-home: -1;
+  z-index: -1;
   top: -180px;
   right: -160px;
   width: 480px;
@@ -144,7 +143,7 @@ a {
 .home-hero::after {
   content: "";
   position: absolute;
-  z-home: -1;
+  z-index: -1;
   right: 0;
   bottom: 0;
   left: 0;
@@ -159,7 +158,7 @@ a {
 
 .hero-copy {
   position: relative;
-  z-home: 2;
+  z-index: 2;
   max-width: 640px;
   animation: premium-enter 0.65s ease both;
 }
@@ -259,7 +258,7 @@ a {
 .primary-cta::before {
   content: "";
   position: absolute;
-  z-home: -1;
+  z-index: -1;
   top: 0;
   bottom: 0;
   left: -125%;
@@ -331,7 +330,7 @@ a {
 
 .visual-card {
   position: relative;
-  z-home: 2;
+  z-index: 2;
   width: min(100%, 385px);
   padding: 25px;
   overflow: hidden;
@@ -373,7 +372,7 @@ a {
 
 .visual-card-top {
   position: relative;
-  z-home: 1;
+  z-index: 1;
   display: flex;
   align-items: center;
   gap: 13px;
@@ -505,7 +504,7 @@ a {
 
 .floating-chip {
   position: absolute;
-  z-home: 3;
+  z-index: 3;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -541,22 +540,75 @@ a {
 
 /* ==========================================================
    QUICK ACCESS / FEATURES
+   UPDATED LIGHT GRADIENT BACKGROUND
 ========================================================== */
 
 .features-section {
   position: relative;
+  isolation: isolate;
+  overflow: hidden;
   padding: 73px clamp(28px, 7.5vw, 112px) 84px;
+
   background:
     radial-gradient(
-      ellipse at 100% 0%,
-      rgba(11, 137, 130, 0.055),
-      transparent 32%
+      ellipse at 8% 15%,
+      rgba(101, 201, 192, 0.15),
+      transparent 38%
     ),
-    linear-gradient(180deg, #f4faf9 0%, #ffffff 100%);
+    radial-gradient(
+      ellipse at 95% 85%,
+      rgba(11, 137, 130, 0.11),
+      transparent 40%
+    ),
+    radial-gradient(
+      ellipse at 50% 0%,
+      rgba(226, 245, 243, 0.75),
+      transparent 65%
+    ),
+    linear-gradient(135deg, #f4faf9 0%, #ffffff 48%, #eaf7f5 100%);
+
   border-top: 1px solid #d9e7e5;
 }
 
+/* Soft decorative background circles */
+
+.features-section::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: -125px;
+  right: -95px;
+  width: 340px;
+  aspect-ratio: 1;
+  border: 1px solid rgba(7, 91, 89, 0.09);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 28px rgba(7, 91, 89, 0.025),
+    0 0 0 62px rgba(7, 91, 89, 0.018),
+    0 0 0 100px rgba(7, 91, 89, 0.012);
+  pointer-events: none;
+}
+
+.features-section::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  bottom: -180px;
+  left: -120px;
+  width: 370px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(101, 201, 192, 0.13),
+    rgba(226, 245, 243, 0.06) 48%,
+    transparent 72%
+  );
+  pointer-events: none;
+}
+
 .section-heading {
+  position: relative;
   max-width: 1200px;
   margin: 0 auto 34px;
 }
@@ -592,6 +644,7 @@ a {
 }
 
 .feature-grid {
+  position: relative;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 19px;
@@ -660,7 +713,7 @@ a {
 
 .feature-icon {
   position: relative;
-  z-home: 1;
+  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -688,7 +741,7 @@ a {
 
 .feature-card h3 {
   position: relative;
-  z-home: 1;
+  z-index: 1;
   margin-top: 20px;
   color: #252d30;
   font-size: 15px;
@@ -698,7 +751,7 @@ a {
 
 .feature-link {
   position: relative;
-  z-home: 1;
+  z-index: 1;
   display: inline-flex;
   align-items: center;
   gap: 7px;
@@ -956,33 +1009,9 @@ a {
 }
 
 /* ==========================================================
-   CINEMATIC ENTRANCE — CONTINUOUS ZOOM
-   Existing door.css / HTML interaction preserved
+   CINEMATIC COLLEGE GLOW
+   Entrance animation is controlled by door.css
 ========================================================== */
-
-#gate-toggle:checked ~ .cinematic-intro .academy-world {
-  animation: continuous-danger-zoom 2.2s linear forwards !important;
-  transition: none !important;
-  will-change: transform, opacity;
-}
-
-#gate-toggle:checked ~ .cinematic-intro .academy-world * {
-  animation-play-state: paused !important;
-}
-
-@keyframes continuous-danger-zoom {
-  0% {
-    transform: translateX(-50%) scale(1);
-    opacity: 1;
-  }
-
-  100% {
-    transform: translateX(-50%) scale(7);
-    opacity: 0;
-  }
-}
-
-/* Cinematic college glow */
 
 .academy-building,
 .academy-college,
