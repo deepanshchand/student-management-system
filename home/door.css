@@ -2,7 +2,8 @@
    STUDENT MANAGEMENT SYSTEM
    CINEMATIC ANIME COLLEGE ENTRANCE
    DEEP TEAL • CHARCOAL • CRIMSON RED • WHITE
-   FINAL CORRECTED DOOR CSS
+   FINAL COMPLETE DOOR CSS
+   Powerful Continuous Cinematic Zoom
 ========================================================= */
 
 :root {
@@ -1111,10 +1112,10 @@
 }
 
 /* =========================================================
-   GATE CLICK — OPEN → INSTANT ZOOM → HOMEPAGE
+   GATE CLICK — OPEN → POWERFUL CONTINUOUS ZOOM → HOMEPAGE
 
-   0.0s - 3.4s : Both gate panels open
-   3.4s - 5.8s : Continuous camera zoom
+   0.0s - 3.4s : Both gate panels open outward
+   3.4s - 5.8s : One continuous accelerating camera zoom
    5.8s onward : Intro fades away and homepage appears
 ========================================================= */
 
@@ -1123,10 +1124,10 @@
   animation: intro-exit 0.9s ease-in 5.8s forwards;
 }
 
-/* Zoom begins immediately after the gate finishes opening */
+/* Powerful, uninterrupted forward camera movement */
 
 #gate-toggle:checked ~ .cinematic-intro .academy-world {
-  animation: world-zoom 2.4s cubic-bezier(0.45, 0, 0.2, 1) 3.4s forwards !important;
+  animation: world-zoom 2.4s cubic-bezier(0.55, 0.05, 0.9, 0.65) 3.4s forwards !important;
   transform-origin: 50% 63%;
   translate: 0 0 !important;
   will-change: transform;
@@ -1438,24 +1439,17 @@
 }
 
 /* =========================================================
-   CAMERA ZOOM — CONTINUOUS FORWARD MOVEMENT
+   POWERFUL CONTINUOUS CAMERA ZOOM
+   No intermediate stages or pauses
 ========================================================= */
 
 @keyframes world-zoom {
-  0% {
+  from {
     transform: translate3d(-50%, 0, 0) scale(1);
   }
 
-  40% {
-    transform: translate3d(-50%, 0, 0) scale(1.6);
-  }
-
-  75% {
-    transform: translate3d(-50%, 0, 0) scale(3);
-  }
-
-  100% {
-    transform: translate3d(-50%, 0, 0) scale(4.2);
+  to {
+    transform: translate3d(-50%, 0, 0) scale(5.5);
   }
 }
 
