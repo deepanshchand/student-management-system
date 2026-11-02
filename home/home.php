@@ -1,3 +1,14 @@
+<?php
+session_start();
+
+// Show entrance animation only on the first visit of this session
+$showEntrance = !isset($_SESSION['entrance_seen']);
+
+if ($showEntrance) {
+    $_SESSION['entrance_seen'] = true;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,7 +24,9 @@
     <link rel="stylesheet" href="footer/footer.css">
 </head>
 
-<body class="home-page">
+<body class="home-page <?= $showEntrance ? 'show-entrance' : 'skip-entrance' ?>">
+
+    <?php if ($showEntrance): ?>
 
     <!-- Entrance controller -->
     <input type="checkbox" id="gate-toggle" aria-label="Open college entrance">
@@ -108,7 +121,9 @@
 
     </section>
 
-    <!-- homepage content -->
+    <?php endif; ?>
+
+    <!-- Homepage content -->
     <div class="home-content">
 
         <?php include __DIR__ . '/navbar/navbar.php'; ?>
