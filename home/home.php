@@ -1,5 +1,6 @@
 <?php
-session_start();
+
+require_once __DIR__ . '/../config/app.php';
 
 // Show entrance animation only on the first visit of this session
 $showEntrance = !isset($_SESSION['entrance_seen']);
@@ -7,8 +8,8 @@ $showEntrance = !isset($_SESSION['entrance_seen']);
 if ($showEntrance) {
     $_SESSION['entrance_seen'] = true;
 }
-?>
 
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,98 +29,98 @@ if ($showEntrance) {
 
     <?php if ($showEntrance): ?>
 
-    <!-- Entrance controller -->
-    <input type="checkbox" id="gate-toggle" aria-label="Open college entrance">
+        <!-- Entrance controller -->
+        <input type="checkbox" id="gate-toggle" aria-label="Open college entrance">
 
-    <!-- Cinematic college entrance -->
-    <section class="cinematic-intro">
+        <!-- Cinematic college entrance -->
+        <section class="cinematic-intro">
 
-        <div class="academy-sky"></div>
-        <div class="academy-stars"></div>
-        <div class="academy-moon"></div>
-        <div class="academy-moon-halo"></div>
+            <div class="academy-sky"></div>
+            <div class="academy-stars"></div>
+            <div class="academy-moon"></div>
+            <div class="academy-moon-halo"></div>
 
-        <div class="academy-clouds cloud-back"></div>
-        <div class="academy-clouds cloud-front"></div>
+            <div class="academy-clouds cloud-back"></div>
+            <div class="academy-clouds cloud-front"></div>
 
-        <div class="floating-island island-left">
-            <div class="island-building mini-building"></div>
-            <div class="island-rock"></div>
-        </div>
-
-        <div class="floating-island island-right">
-            <div class="island-pagoda mini-pagoda"></div>
-            <div class="island-rock"></div>
-        </div>
-
-        <div class="academy-world">
-
-            <div class="world-aura"></div>
-
-            <div class="academy-tower tower-left">
-                <div class="tower-roof"></div>
-                <div class="tower-body">
-                    <span></span><span></span><span></span>
-                </div>
-                <div class="tower-light"></div>
+            <div class="floating-island island-left">
+                <div class="island-building mini-building"></div>
+                <div class="island-rock"></div>
             </div>
 
-            <div class="academy-tower tower-right">
-                <div class="tower-roof"></div>
-                <div class="tower-body">
-                    <span></span><span></span><span></span>
-                </div>
-                <div class="tower-light"></div>
+            <div class="floating-island island-right">
+                <div class="island-pagoda mini-pagoda"></div>
+                <div class="island-rock"></div>
             </div>
 
-            <div class="academy-main-building">
+            <div class="academy-world">
 
-                <div class="academy-roof roof-top"></div>
-                <div class="academy-roof roof-middle"></div>
+                <div class="world-aura"></div>
 
-                <div class="academy-building-body">
+                <div class="academy-tower tower-left">
+                    <div class="tower-roof"></div>
+                    <div class="tower-body">
+                        <span></span><span></span><span></span>
+                    </div>
+                    <div class="tower-light"></div>
+                </div>
 
-                    <div class="academy-sign">KITM COLLEGE</div>
+                <div class="academy-tower tower-right">
+                    <div class="tower-roof"></div>
+                    <div class="tower-body">
+                        <span></span><span></span><span></span>
+                    </div>
+                    <div class="tower-light"></div>
+                </div>
 
-                    <div class="academy-windows">
-                        <span></span>
-                        <span></span>
-                        <span></span>
+                <div class="academy-main-building">
+
+                    <div class="academy-roof roof-top"></div>
+                    <div class="academy-roof roof-middle"></div>
+
+                    <div class="academy-building-body">
+
+                        <div class="academy-sign">KITM COLLEGE</div>
+
+                        <div class="academy-windows">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+
+                        <!-- Click the gate to enter -->
+                        <label for="gate-toggle" class="academy-entrance-light" aria-label="Open college gate"
+                            title="Click the gate to enter">
+                        </label>
+
                     </div>
 
-                    <!-- Click the gate to enter -->
-                    <label for="gate-toggle" class="academy-entrance-light" aria-label="Open college gate"
-                        title="Click the gate to enter">
-                    </label>
+                    <div class="academy-stairs"></div>
 
                 </div>
 
-                <div class="academy-stairs"></div>
+                <div class="academy-platform"></div>
+
+                <div class="academy-island">
+                    <div class="island-grass"></div>
+                    <div class="island-cliff"></div>
+                    <div class="island-crystal crystal-left"></div>
+                    <div class="island-crystal crystal-right"></div>
+                </div>
+
+                <div class="academy-waterfall waterfall-left"></div>
+                <div class="academy-waterfall waterfall-right"></div>
 
             </div>
 
-            <div class="academy-platform"></div>
+            <div class="sakura-field sakura-one"></div>
+            <div class="sakura-field sakura-two"></div>
+            <div class="sakura-field sakura-three"></div>
 
-            <div class="academy-island">
-                <div class="island-grass"></div>
-                <div class="island-cliff"></div>
-                <div class="island-crystal crystal-left"></div>
-                <div class="island-crystal crystal-right"></div>
-            </div>
+            <div class="cinematic-vignette"></div>
+            <div class="cinematic-scanline"></div>
 
-            <div class="academy-waterfall waterfall-left"></div>
-            <div class="academy-waterfall waterfall-right"></div>
-
-        </div>
-
-        <div class="sakura-field sakura-one"></div>
-        <div class="sakura-field sakura-two"></div>
-        <div class="sakura-field sakura-three"></div>
-
-        <div class="cinematic-vignette"></div>
-        <div class="cinematic-scanline"></div>
-
-    </section>
+        </section>
 
     <?php endif; ?>
 
