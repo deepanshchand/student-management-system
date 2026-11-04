@@ -29,98 +29,98 @@ if ($showEntrance) {
 
     <?php if ($showEntrance): ?>
 
-        <!-- Entrance controller -->
-        <input type="checkbox" id="gate-toggle" aria-label="Open college entrance">
+    <!-- Entrance controller -->
+    <input type="checkbox" id="gate-toggle" aria-label="Open college entrance">
 
-        <!-- Cinematic college entrance -->
-        <section class="cinematic-intro">
+    <!-- Cinematic college entrance -->
+    <section class="cinematic-intro">
 
-            <div class="academy-sky"></div>
-            <div class="academy-stars"></div>
-            <div class="academy-moon"></div>
-            <div class="academy-moon-halo"></div>
+        <div class="academy-sky"></div>
+        <div class="academy-stars"></div>
+        <div class="academy-moon"></div>
+        <div class="academy-moon-halo"></div>
 
-            <div class="academy-clouds cloud-back"></div>
-            <div class="academy-clouds cloud-front"></div>
+        <div class="academy-clouds cloud-back"></div>
+        <div class="academy-clouds cloud-front"></div>
 
-            <div class="floating-island island-left">
-                <div class="island-building mini-building"></div>
-                <div class="island-rock"></div>
+        <div class="floating-island island-left">
+            <div class="island-building mini-building"></div>
+            <div class="island-rock"></div>
+        </div>
+
+        <div class="floating-island island-right">
+            <div class="island-pagoda mini-pagoda"></div>
+            <div class="island-rock"></div>
+        </div>
+
+        <div class="academy-world">
+
+            <div class="world-aura"></div>
+
+            <div class="academy-tower tower-left">
+                <div class="tower-roof"></div>
+                <div class="tower-body">
+                    <span></span><span></span><span></span>
+                </div>
+                <div class="tower-light"></div>
             </div>
 
-            <div class="floating-island island-right">
-                <div class="island-pagoda mini-pagoda"></div>
-                <div class="island-rock"></div>
+            <div class="academy-tower tower-right">
+                <div class="tower-roof"></div>
+                <div class="tower-body">
+                    <span></span><span></span><span></span>
+                </div>
+                <div class="tower-light"></div>
             </div>
 
-            <div class="academy-world">
+            <div class="academy-main-building">
 
-                <div class="world-aura"></div>
+                <div class="academy-roof roof-top"></div>
+                <div class="academy-roof roof-middle"></div>
 
-                <div class="academy-tower tower-left">
-                    <div class="tower-roof"></div>
-                    <div class="tower-body">
-                        <span></span><span></span><span></span>
-                    </div>
-                    <div class="tower-light"></div>
-                </div>
+                <div class="academy-building-body">
 
-                <div class="academy-tower tower-right">
-                    <div class="tower-roof"></div>
-                    <div class="tower-body">
-                        <span></span><span></span><span></span>
-                    </div>
-                    <div class="tower-light"></div>
-                </div>
+                    <div class="academy-sign">KITM COLLEGE</div>
 
-                <div class="academy-main-building">
-
-                    <div class="academy-roof roof-top"></div>
-                    <div class="academy-roof roof-middle"></div>
-
-                    <div class="academy-building-body">
-
-                        <div class="academy-sign">KITM COLLEGE</div>
-
-                        <div class="academy-windows">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
-
-                        <!-- Click the gate to enter -->
-                        <label for="gate-toggle" class="academy-entrance-light" aria-label="Open college gate"
-                            title="Click the gate to enter">
-                        </label>
-
+                    <div class="academy-windows">
+                        <span></span>
+                        <span></span>
+                        <span></span>
                     </div>
 
-                    <div class="academy-stairs"></div>
+                    <!-- Click the gate to enter -->
+                    <label for="gate-toggle" class="academy-entrance-light" aria-label="Open college gate"
+                        title="Click the gate to enter">
+                    </label>
 
                 </div>
 
-                <div class="academy-platform"></div>
-
-                <div class="academy-island">
-                    <div class="island-grass"></div>
-                    <div class="island-cliff"></div>
-                    <div class="island-crystal crystal-left"></div>
-                    <div class="island-crystal crystal-right"></div>
-                </div>
-
-                <div class="academy-waterfall waterfall-left"></div>
-                <div class="academy-waterfall waterfall-right"></div>
+                <div class="academy-stairs"></div>
 
             </div>
 
-            <div class="sakura-field sakura-one"></div>
-            <div class="sakura-field sakura-two"></div>
-            <div class="sakura-field sakura-three"></div>
+            <div class="academy-platform"></div>
 
-            <div class="cinematic-vignette"></div>
-            <div class="cinematic-scanline"></div>
+            <div class="academy-island">
+                <div class="island-grass"></div>
+                <div class="island-cliff"></div>
+                <div class="island-crystal crystal-left"></div>
+                <div class="island-crystal crystal-right"></div>
+            </div>
 
-        </section>
+            <div class="academy-waterfall waterfall-left"></div>
+            <div class="academy-waterfall waterfall-right"></div>
+
+        </div>
+
+        <div class="sakura-field sakura-one"></div>
+        <div class="sakura-field sakura-two"></div>
+        <div class="sakura-field sakura-three"></div>
+
+        <div class="cinematic-vignette"></div>
+        <div class="cinematic-scanline"></div>
+
+    </section>
 
     <?php endif; ?>
 
@@ -152,9 +152,16 @@ if ($showEntrance) {
                     </p>
 
                     <div class="hero-actions">
+
+                        <!-- OLD LINK (preserved):
                         <a href="<?= e(app_url('home/dashboard/dashboard.php')) ?>" class="primary-cta">
+                        -->
+
+                        <!-- NEW LINK: Open frontend dashboard preview directly -->
+                        <a href="<?= e(app_url('home/dashboard/dashboard-preview.php')) ?>" class="primary-cta">
                             Open Dashboard <span>↗</span>
                         </a>
+
                     </div>
 
                 </div>
@@ -238,21 +245,36 @@ if ($showEntrance) {
 
                 <div class="feature-grid">
 
+                    <!-- OLD LINK (preserved):
                     <a href="<?= e(app_url('home/dashboard/dashboard.php')) ?>" class="feature-card">
+                    -->
+
+                    <!-- NEW LINK: Frontend dashboard preview -->
+                    <a href="<?= e(app_url('home/dashboard/dashboard-preview.php')) ?>" class="feature-card">
                         <span class="feature-icon">＋</span>
                         <span class="feature-number">01</span>
                         <h3>Add Student</h3>
                         <span class="feature-link">Open dashboard ↗</span>
                     </a>
 
+                    <!-- OLD LINK (preserved):
                     <a href="<?= e(app_url('home/dashboard/dashboard.php')) ?>" class="feature-card">
+                    -->
+
+                    <!-- NEW LINK: Frontend dashboard preview -->
+                    <a href="<?= e(app_url('home/dashboard/dashboard-preview.php')) ?>" class="feature-card">
                         <span class="feature-icon">▤</span>
                         <span class="feature-number">02</span>
                         <h3>View Students</h3>
                         <span class="feature-link">Open dashboard ↗</span>
                     </a>
 
+                    <!-- OLD LINK (preserved):
                     <a href="<?= e(app_url('home/dashboard/dashboard.php')) ?>" class="feature-card">
+                    -->
+
+                    <!-- NEW LINK: Frontend dashboard preview -->
+                    <a href="<?= e(app_url('home/dashboard/dashboard-preview.php')) ?>" class="feature-card">
                         <span class="feature-icon">✎</span>
                         <span class="feature-number">03</span>
                         <h3>Edit Records</h3>

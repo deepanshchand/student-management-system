@@ -609,3 +609,9 @@
     scroll-behavior: auto !important;
   }
 }
+/* Frontend Preview: Login and Sign Up disabled */
+
+.disabled-auth-link {
+    pointer-events: none;
+    cursor: default;
+}

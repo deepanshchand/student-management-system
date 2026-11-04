@@ -1,0 +1,7 @@
+
+.git
+.github
+config/local.php
+config/hosting.php
+database.sql
+test-connection.php
