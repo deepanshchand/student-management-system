@@ -1,3 +1,5 @@
+<?php require_once __DIR__ . '/../../config/app.php'; ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,16 +30,17 @@
             </h1>
 
             <p>
-                A simple web-based application to manage student
-                records efficiently using essential CRUD operations.
+                A simple and modern web-based interface designed
+                to present student information through a clean,
+                organized and user-friendly dashboard.
             </p>
 
-            <a href="<?= e(app_url('home/dashboard/dashboard.php')) ?>" class="primary-btn">
+            <a href="<?= e(app_url('home/dashboard/dashboard-preview.php')) ?>" class="primary-btn">
                 Explore Dashboard <span>↗</span>
             </a>
         </section>
 
-        <!-- Page 1: Overview -->
+        <!-- Overview -->
         <section class="content-section">
             <div class="section-heading">
                 <span class="section-label">01 / OVERVIEW</span>
@@ -46,9 +49,10 @@
 
             <div class="overview-card">
                 <p>
-                    Student Management System helps users store,
-                    view, update and delete student information
-                    from a centralized database.
+                    Student Management System is a frontend
+                    demonstration project that showcases student
+                    information, dashboard layouts and website
+                    navigation in an organized interface.
                 </p>
             </div>
         </section>
@@ -65,7 +69,7 @@
                 <article class="tech-card">
                     <span class="tech-number">01</span>
                     <h3>HTML5</h3>
-                    <p>Structures web pages and forms.</p>
+                    <p>Structures web pages and content.</p>
                 </article>
 
                 <article class="tech-card">
@@ -77,13 +81,13 @@
                 <article class="tech-card">
                     <span class="tech-number">03</span>
                     <h3>PHP</h3>
-                    <p>Processes requests and record operations.</p>
+                    <p>Maintains dynamic page structure and reusable components.</p>
                 </article>
 
                 <article class="tech-card">
                     <span class="tech-number">04</span>
-                    <h3>MySQL</h3>
-                    <p>Stores and manages student data.</p>
+                    <h3>Frontend UI</h3>
+                    <p>Displays sample content and interactive page elements.</p>
                 </article>
 
             </div>
@@ -93,44 +97,44 @@
         <section class="content-section">
             <div class="section-heading">
                 <span class="section-label">03 / CORE FEATURES</span>
-                <h2>Student Record Management</h2>
-                <p>Four essential database operations.</p>
+                <h2>Website Features</h2>
+                <p>Explore the main sections of the website.</p>
             </div>
 
             <div class="feature-grid">
 
                 <article class="feature-card">
-                    <span class="feature-icon">＋</span>
-                    <h3>Create</h3>
-                    <p>Add new student records.</p>
+                    <span class="feature-icon">▦</span>
+                    <h3>Dashboard</h3>
+                    <p>View student information through sample records.</p>
                 </article>
 
                 <article class="feature-card">
                     <span class="feature-icon">⌕</span>
-                    <h3>Read</h3>
-                    <p>View saved student details.</p>
+                    <h3>Student Overview</h3>
+                    <p>Explore an organized student information layout.</p>
                 </article>
 
                 <article class="feature-card">
-                    <span class="feature-icon">✎</span>
-                    <h3>Update</h3>
-                    <p>Edit existing records.</p>
+                    <span class="feature-icon">✉</span>
+                    <h3>Contact</h3>
+                    <p>View contact information and message form.</p>
                 </article>
 
                 <article class="feature-card">
-                    <span class="feature-icon">×</span>
-                    <h3>Delete</h3>
-                    <p>Remove unwanted records.</p>
+                    <span class="feature-icon">◉</span>
+                    <h3>Authentication UI</h3>
+                    <p>Explore Login and Sign Up page designs.</p>
                 </article>
 
             </div>
         </section>
 
-        <!-- Page 2: How It Works -->
+        <!-- Workflow -->
         <section class="content-section">
             <div class="section-heading">
-                <span class="section-label">04 / WORKFLOW</span>
-                <h2>How It Works</h2>
+                <span class="section-label">04 / WEBSITE STRUCTURE</span>
+                <h2>Explore the Website</h2>
             </div>
 
             <div class="workflow-list">
@@ -138,32 +142,32 @@
                 <div class="workflow-step">
                     <span>01</span>
                     <div>
-                        <h3>Enter Information</h3>
-                        <p>Use the website forms to manage student details.</p>
+                        <h3>Home Page</h3>
+                        <p>Start with the main landing page.</p>
                     </div>
                 </div>
 
                 <div class="workflow-step">
                     <span>02</span>
                     <div>
-                        <h3>Process Data</h3>
-                        <p>PHP handles the requested operation.</p>
+                        <h3>Dashboard</h3>
+                        <p>Explore the dashboard and sample student records.</p>
                     </div>
                 </div>
 
                 <div class="workflow-step">
                     <span>03</span>
                     <div>
-                        <h3>Store in Database</h3>
-                        <p>MySQL saves or retrieves the records.</p>
+                        <h3>About & Contact</h3>
+                        <p>Learn about the project and view contact details.</p>
                     </div>
                 </div>
 
                 <div class="workflow-step">
                     <span>04</span>
                     <div>
-                        <h3>View Updated Records</h3>
-                        <p>The dashboard displays the stored information.</p>
+                        <h3>Login & Sign Up</h3>
+                        <p>Explore the authentication page interfaces.</p>
                     </div>
                 </div>
 
@@ -174,24 +178,24 @@
         <section class="content-section">
             <div class="section-heading">
                 <span class="section-label">05 / BENEFITS</span>
-                <h2>Why This Project?</h2>
+                <h2>Project Highlights</h2>
             </div>
 
             <div class="impact-grid">
 
                 <article class="impact-card">
-                    <h3>Organized Records</h3>
+                    <h3>Clean Interface</h3>
                     <p>
-                        Keep student information together instead
-                        of managing scattered manual records.
+                        A structured and user-friendly design
+                        for presenting student information.
                     </p>
                 </article>
 
                 <article class="impact-card">
                     <h3>Practical Learning</h3>
                     <p>
-                        Demonstrates PHP, MySQL and database
-                        operations in a real project.
+                        Demonstrates PHP page structure,
+                        HTML components and CSS styling.
                     </p>
                 </article>
 
@@ -205,18 +209,18 @@
             <h2>What's Next?</h2>
 
             <p>
-                The project can be extended with additional
-                features as requirements grow.
+                The frontend interface can be extended with
+                additional functionality in future versions.
             </p>
 
             <ul>
-                <li>Administrator login and access control</li>
-                <li>Search and filter student records</li>
-                <li>CSV or PDF export</li>
-                <li>Online deployment</li>
+                <li>Database integration</li>
+                <li>User authentication</li>
+                <li>Student record management</li>
+                <li>Search and filter functionality</li>
             </ul>
 
-            <a href="<?= e(app_url('home/dashboard/dashboard.php')) ?>" class="primary-btn">
+            <a href="<?= e(app_url('home/dashboard/dashboard-preview.php')) ?>" class="primary-btn">
                 Open Dashboard <span>↗</span>
             </a>
         </section>
@@ -226,7 +230,7 @@
             <p>
                 <strong>Student Management System</strong>
                 <span> | </span>
-                PHP & MySQL Mini Project
+                Frontend UI Preview
             </p>
         </footer>
 

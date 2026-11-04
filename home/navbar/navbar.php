@@ -9,51 +9,23 @@
 
     <div class="home-nav-links">
 
-        <a href="<?= e(app_url('home/home.php')) ?>" class="nav-home">Home </a>
+        <a href="<?= e(app_url('home/home.php')) ?>" class="nav-home">Home</a>
+
         <a href="<?= e(app_url('home/navbar/about.php')) ?>">About</a>
+
         <a href="<?= e(app_url('home/navbar/contact.php')) ?>">Contact Us</a>
 
-        <?php if (is_logged_in()): ?>
-
-        <span class="nav-user" title="Signed in account">
-            Hi, <?= e(current_user_name()) ?>
-        </span>
-
-        <!-- OLD DASHBOARD LINK (preserved):
-        <a href="<?= e(app_url('home/dashboard/dashboard.php')) ?>" class="nav-dashboard">Dashboard ↗</a>
-        -->
-
-        <!-- NEW DASHBOARD LINK: Frontend preview -->
         <a href="<?= e(app_url('home/dashboard/dashboard-preview.php')) ?>" class="nav-dashboard">
             Dashboard ↗
         </a>
 
-        <form class="logout-form" method="post" action="<?= e(app_url('home/navbar/logout.php')) ?>">
-            <?= csrf_field() ?>
-            <button type="submit" class="nav-logout">Log out</button>
-        </form>
-
-        <?php else: ?>
-
-        <!-- OLD LOGIN LINK (preserved):
-        <a href="<?= e(app_url('home/navbar/login.php')) ?>">Login</a>
-        -->
-
-        <!-- NEW LOGIN LINK: Disabled for frontend preview -->
-        <a href="#" class="disabled-auth-link" aria-disabled="true" tabindex="-1" onclick="return false;">
+        <a href="<?= e(app_url('home/navbar/login.php')) ?>">
             Login
         </a>
 
-        <!-- OLD SIGN UP LINK (preserved):
-        <a href="<?= e(app_url('home/navbar/signup.php')) ?>" class="nav-signup">Sign Up</a>
-        -->
-
-        <!-- NEW SIGN UP LINK: Disabled for frontend preview -->
-        <a href="#" class="nav-signup disabled-auth-link" aria-disabled="true" tabindex="-1" onclick="return false;">
+        <a href="<?= e(app_url('home/navbar/signup.php')) ?>" class="nav-signup">
             Sign Up
         </a>
-
-        <?php endif; ?>
 
     </div>
 

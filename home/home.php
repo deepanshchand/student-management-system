@@ -2,12 +2,8 @@
 
 require_once __DIR__ . '/../config/app.php';
 
-// Show entrance animation only on the first visit of this session
-$showEntrance = !isset($_SESSION['entrance_seen']);
-
-if ($showEntrance) {
-    $_SESSION['entrance_seen'] = true;
-}
+// Show entrance animation on every page load.
+$showEntrance = true;
 
 ?>
 <!DOCTYPE html>
@@ -154,7 +150,7 @@ if ($showEntrance) {
                     <div class="hero-actions">
 
                         <!-- OLD LINK (preserved):
-                        <a href="<?= e(app_url('home/dashboard/dashboard.php')) ?>" class="primary-cta">
+                        <a href="<?= e(app_url('home/dashboard/dashboard-preview.php')) ?>" class="primary-cta">
                         -->
 
                         <!-- NEW LINK: Open frontend dashboard preview directly -->
@@ -246,7 +242,7 @@ if ($showEntrance) {
                 <div class="feature-grid">
 
                     <!-- OLD LINK (preserved):
-                    <a href="<?= e(app_url('home/dashboard/dashboard.php')) ?>" class="feature-card">
+                    <a href="<?= e(app_url('home/dashboard/dashboard-preview.php')) ?>" class="feature-card">
                     -->
 
                     <!-- NEW LINK: Frontend dashboard preview -->
@@ -258,7 +254,7 @@ if ($showEntrance) {
                     </a>
 
                     <!-- OLD LINK (preserved):
-                    <a href="<?= e(app_url('home/dashboard/dashboard.php')) ?>" class="feature-card">
+                    <a href="<?= e(app_url('home/dashboard/dashboard-preview.php')) ?>" class="feature-card">
                     -->
 
                     <!-- NEW LINK: Frontend dashboard preview -->
@@ -270,7 +266,7 @@ if ($showEntrance) {
                     </a>
 
                     <!-- OLD LINK (preserved):
-                    <a href="<?= e(app_url('home/dashboard/dashboard.php')) ?>" class="feature-card">
+                    <a href="<?= e(app_url('home/dashboard/dashboard-preview.php')) ?>" class="feature-card">
                     -->
 
                     <!-- NEW LINK: Frontend dashboard preview -->

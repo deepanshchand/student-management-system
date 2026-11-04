@@ -1,4 +1,6 @@
 <?php
+require_once __DIR__ . '/../../config/app.php';
+
 $currentYear = date('Y');
 ?>
 
@@ -9,7 +11,9 @@ $currentYear = date('Y');
     <div class="sms-footer-inner">
 
         <!-- Brand -->
-        <a href="home.php" class="sms-footer-brand" aria-label="Student Management System home">
+        <a href="<?= e(app_url('home/home.php')) ?>" class="sms-footer-brand"
+            aria-label="Student Management System home">
+
             <span class="sms-footer-logo">S</span>
 
             <span class="sms-footer-brand-text">
@@ -20,18 +24,21 @@ $currentYear = date('Y');
             </span>
         </a>
 
-
         <!-- Bottom bar -->
         <div class="sms-footer-bottom">
+
             <p>
-                © <?= $currentYear ?> Student Management System.
+                © <?= e($currentYear) ?> Student Management System.
                 All rights reserved.
             </p>
 
             <a href="#" class="sms-footer-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">
+
                 Back to top
                 <span aria-hidden="true">↑</span>
+
             </a>
+
         </div>
 
     </div>

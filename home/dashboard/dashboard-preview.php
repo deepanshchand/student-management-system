@@ -36,7 +36,8 @@ $students = [
 ];
 
 $totalStudents = count($students);
-$latestStudent = $students[0]['name'];
+$latestStudent = $students[array_key_last($students)]['name'];
+$latestRecordId = $students[array_key_last($students)]['id'];
 
 ?>
 
@@ -109,6 +110,16 @@ $latestStudent = $students[0]['name'];
                     <span>Contact</span>
                 </a>
 
+                <a class="nav-link" href="../navbar/login.php">
+                    <span class="nav-icon">◉</span>
+                    <span>Login</span>
+                </a>
+
+                <a class="nav-link" href="../navbar/signup.php">
+                    <span class="nav-icon">＋</span>
+                    <span>Sign Up</span>
+                </a>
+
             </nav>
 
             <div class="sidebar-bottom">
@@ -126,7 +137,8 @@ $latestStudent = $students[0]['name'];
 
             <header class="topbar">
 
-                <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
+                <button class="menu-toggle" id="menuToggle" type="button" aria-label="Toggle navigation"
+                    aria-expanded="false">
                     ☰
                 </button>
 
@@ -181,7 +193,7 @@ $latestStudent = $students[0]['name'];
                     </div>
 
                     <div class="stat-value">
-                        #<?= $students[0]['id'] ?>
+                        #<?= $latestRecordId ?>
                     </div>
 
                     <div class="stat-accent accent-purple"></div>
@@ -206,7 +218,7 @@ $latestStudent = $students[0]['name'];
                 <article class="stat-card reveal">
 
                     <div class="stat-top">
-                        <span class="stat-label">DATABASE STATUS</span>
+                        <span class="stat-label">SYSTEM STATUS</span>
                         <span class="stat-icon green-icon">✓</span>
                     </div>
 
@@ -255,9 +267,8 @@ $latestStudent = $students[0]['name'];
                 </div>
 
                 <div class="table-meta">
-                    <span>
-                        <?= $totalStudents ?>
-                        RECORDS FOUND
+                    <span id="recordCount">
+                        <?= $totalStudents ?> RECORDS FOUND
                     </span>
                 </div>
 
@@ -334,7 +345,7 @@ $latestStudent = $students[0]['name'];
 
                 <div class="panel-footer">
 
-                    <span>
+                    <span id="showingCount">
                         SHOWING <b><?= $totalStudents ?></b> STUDENT RECORDS
                     </span>
 
@@ -363,6 +374,89 @@ $latestStudent = $students[0]['name'];
     </div>
 
     <div class="mobile-overlay" id="mobileOverlay"></div>
+
+    <script>
+    // Student Search
+    const searchInput = document.getElementById('studentSearch');
+    const tableRows = document.querySelectorAll('#studentsTable tbody tr');
+    const recordCount = document.getElementById('recordCount');
+    const showingCount = document.getElementById('showingCount');
+
+    searchInput.addEventListener('input', function() {
+
+        const searchValue = this.value.toLowerCase().trim();
+        let visibleCount = 0;
+
+        tableRows.forEach(row => {
+
+            const rowText = row.textContent.toLowerCase();
+            const matches = rowText.includes(searchValue);
+
+            row.style.display = matches ? '' : 'none';
+
+            if (matches) {
+                visibleCount++;
+            }
+
+        });
+
+        recordCount.textContent = visibleCount + ' RECORDS FOUND';
+
+        showingCount.innerHTML =
+            'SHOWING <b>' + visibleCount + '</b> STUDENT RECORDS';
+
+    });
+
+    // Keyboard Shortcut: Ctrl + K
+    document.addEventListener('keydown', function(event) {
+
+        if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'k') {
+            event.preventDefault();
+            searchInput.focus();
+        }
+
+        if (event.key === 'Escape') {
+            closeSidebar();
+            searchInput.blur();
+        }
+
+    });
+
+    // Mobile Sidebar
+    const sidebar = document.getElementById('sidebar');
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileOverlay = document.getElementById('mobileOverlay');
+
+    function openSidebar() {
+        sidebar.classList.add('sidebar-open');
+        mobileOverlay.classList.add('overlay-visible');
+        menuToggle.setAttribute('aria-expanded', 'true');
+    }
+
+    function closeSidebar() {
+        sidebar.classList.remove('sidebar-open');
+        mobileOverlay.classList.remove('overlay-visible');
+        menuToggle.setAttribute('aria-expanded', 'false');
+    }
+
+    menuToggle.addEventListener('click', function() {
+
+        if (sidebar.classList.contains('sidebar-open')) {
+            closeSidebar();
+        } else {
+            openSidebar();
+        }
+
+    });
+
+    mobileOverlay.addEventListener('click', closeSidebar);
+
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 850) {
+            closeSidebar();
+        }
+    });
+    </script>
 
 </body>
 
